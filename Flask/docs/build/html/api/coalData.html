@@ -1,0 +1,1160 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coalData module &mdash; Smart Coking System Documentation v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/modify.css?v=49f62740" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=aabfef7a"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="coal_quality_model_AI module" href="coal_quality_model_AI.html" />
+    <link rel="prev" title="程序的修改与维护" href="../developer/updates.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Smart Coking System Documentation
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/overview.html">智慧焦化用户手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/overview.html">开发者帮助文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/blender.html">Blender 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/updates.html">程序的修改与维护</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">coalData module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#coalData.CoalDataGeneration"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.Al2O3"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.Al2O3</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.CaO"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.CaO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.DT"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.DT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.E"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.E</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.FT"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.FT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.Fe2O3"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.Fe2O3</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.G"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.G</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.HT"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.HT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.I"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.I</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.K2O"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.K2O</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.M"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.M</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.MgO"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.MgO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.Na2O"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.Na2O</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.P2O5"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.P2O5</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.Rmax"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.Rmax</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.SO3"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.SO3</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ST"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ST</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.SiO2"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.SiO2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.T1"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.T1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.T2"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.T2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.T3"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.T3</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.TiO2"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.TiO2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.Tk"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.Tk</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.Tk_Tp"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.Tk_Tp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.Tmax"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.Tmax</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.Tp"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.Tp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.V"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.V</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.X"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.X</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.Y"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.Y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.a"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.a</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.amax"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.amax</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ash_total"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ash_total</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.b"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.b</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.center_100_time"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.center_100_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.center_500_time"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.center_500_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.center_900_time"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.center_900_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_ad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_ad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_ada"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_ada</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_ana_cad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_ana_cad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_ana_had"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_ana_had</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_ana_nad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_ana_nad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_ana_oad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_ana_oad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_belong"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_belong</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_dry_cd"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_dry_cd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_dry_hd"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_dry_hd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_dry_nd"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_dry_nd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_dry_od"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_dry_od</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_drynoash_cdaf"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_drynoash_cdaf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_drynoash_hdaf"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_drynoash_hdaf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_drynoash_ndaf"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_drynoash_ndaf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_drynoash_odaf"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_drynoash_odaf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_fcad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_fcad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_fcd"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_fcd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_mad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_mad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_name"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_price"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_price</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_std"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_std</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_type"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_vad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_vad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_vd"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_vd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coal_vdaf"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coal_vdaf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_1000"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_1000</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_1050"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_1050</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_10mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_10mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_1100"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_1100</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_1150"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_1150</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_1200"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_1200</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_20_10mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_20_10mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_25_20mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_25_20mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_40_25mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_40_25mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_5mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_5mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_60_40mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_60_40mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_60mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_60mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_750"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_750</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_800"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_800</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_80_60mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_80_60mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_80mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_80mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_850"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_850</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_900"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_900</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_950"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_950</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_CRI"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_CRI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_CSR"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_CSR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_DT"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_DT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_FT"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_FT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_HT"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_HT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_M10"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_M10</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_M25"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_M25</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_M40"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_M40</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_ST"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_ST</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_aad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_aad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_ad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_ad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_apparent_porosity"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_apparent_porosity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_fake_density"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_fake_density</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_fcad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_fcad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_fcd"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_fcd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_fineness"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_fineness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_mad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_mad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_moi"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_moi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_real_density"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_real_density</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_std"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_std</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_sum"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_sum</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_total_ratio"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_total_ratio</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_vad"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_vad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_vd"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_vd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coke_vdaf"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coke_vdaf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coking_date"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coking_date</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coking_end_temp"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coking_end_temp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coking_end_time"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coking_end_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coking_process_time"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coking_process_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coking_start_time"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coking_start_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.coking_style"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.coking_style</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.down_number"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.down_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.dry_quality"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.dry_quality</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.heap_density"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.heap_density</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.hot_coke_qulity"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.hot_coke_qulity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.hot_ratio_coke"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.hot_ratio_coke</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.id"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.live_idle_ratio"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.live_idle_ratio</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.micro_type"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.micro_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.micro_var"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.micro_var</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_05mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_05mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_10_8mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_10_8mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_13_10mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_13_10mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_13mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_13mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_1_05mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_1_05mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_2_1mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_2_1mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_3_2mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_3_2mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_4_3mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_4_3mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_5_4mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_5_4mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_6_5mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_6_5mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_8_6mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_8_6mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_fineness"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_fineness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ori_coal_total"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ori_coal_total</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.oven_moi"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.oven_moi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.oven_type"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.oven_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_CRI"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_CRI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_CRI_error"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_CRI_error</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_CRI_expert"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_CRI_expert</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_CSR"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_CSR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_CSR_error"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_CSR_error</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_CSR_expert"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_CSR_expert</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_M10"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_M10</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_M10_error"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_M10_error</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_M10_expert"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_M10_expert</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_M25"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_M25</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_M25_error"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_M25_error</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.predicted_M25_expert"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.predicted_M25_expert</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.quench_coke_weight"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.quench_coke_weight</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.query"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.query</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.ratio_coke"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.ratio_coke</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.response"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma__coal_05mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma__coal_05mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma__coal_1_05mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma__coal_1_05mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma__coal_2_1mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma__coal_2_1mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma__coal_3_2mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma__coal_3_2mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma__coal_4_3mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma__coal_4_3mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma__coal_5_4mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma__coal_5_4mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma__coal_6_5mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma__coal_6_5mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma__coal_6mm"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma__coal_6mm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma__coal_total"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma__coal_total</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma_coal_fineness"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma_coal_fineness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.sma_coal_moi"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.sma_coal_moi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coalData.CoalDataGeneration.up_temper"><code class="docutils literal notranslate"><span class="pre">CoalDataGeneration.up_temper</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coal_quality_model_AI.html">coal_quality_model_AI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataProcess.html">DataProcess Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example.html">Example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genetic_algorithm_geatpy1.html">genetic_algorithm_geatpy1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genetic_algorithm_geatpy2.html">genetic_algorithm_geatpy2 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="login.html">login module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ModelPredict.html">ModelPredict module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typeClassfication.html">typeClassfication module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Smart Coking System Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">coalData module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/coalData.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-coalData">
+<span id="coaldata-module"></span><h1>coalData module<a class="headerlink" href="#module-coalData" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">coalData.</span></span><span class="sig-name descname"><span class="pre">CoalDataGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/coalData.html#CoalDataGeneration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#coalData.CoalDataGeneration" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>CoalDataGeneration类用于管理煤分子的多种数据生成，包括煤分子描述符、光谱数据、煤样的物理化学特性等。
+该类主要用于煤样分析数据的存储与处理，支持煤的多种实验和数据分析，包括煤样筛选分布、工业分析、元素组成、焦化过程参数、焦炭质量等多种属性数据。</p>
+<p>具体功能：
+1. 该类存储煤样和焦炭样品的各类实验分析数据，包括筛分组分、煤的工业分析、元素分析、焦化温度与过程参数等。
+2. 煤样的各种物理、化学特性，如水分、固定碳、挥发分、灰分、密度、粘结指数等，都可以通过该模型进行存储和分析。
+3. 焦化过程数据包括炼焦温度、焦化结束时间、焦炭强度、气孔率等，也可通过该类进行保存与管理。
+4. 支持数据与深度学习模型的结合，可为训练煤炭相关的回归或分类模型提供原始数据输入。
+5. 可根据具体的需求为煤样和焦炭样品构建特定的模型，用于进一步分析或预测煤的燃烧、气化、焦化等过程中的性能表现。</p>
+<p>本类可以为煤炭行业的数据分析、模型训练、过程优化等提供强大的支持，是煤炭研究与生产过程数字化转型的重要工具。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.Al2O3">
+<span class="sig-name descname"><span class="pre">Al2O3</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.Al2O3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.CaO">
+<span class="sig-name descname"><span class="pre">CaO</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.CaO" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.DT">
+<span class="sig-name descname"><span class="pre">DT</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.DT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.E">
+<span class="sig-name descname"><span class="pre">E</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.E" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.FT">
+<span class="sig-name descname"><span class="pre">FT</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.FT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.Fe2O3">
+<span class="sig-name descname"><span class="pre">Fe2O3</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.Fe2O3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.G">
+<span class="sig-name descname"><span class="pre">G</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.G" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.HT">
+<span class="sig-name descname"><span class="pre">HT</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.HT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.I">
+<span class="sig-name descname"><span class="pre">I</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.I" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.K2O">
+<span class="sig-name descname"><span class="pre">K2O</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.K2O" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.M">
+<span class="sig-name descname"><span class="pre">M</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.M" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.MgO">
+<span class="sig-name descname"><span class="pre">MgO</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.MgO" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.Na2O">
+<span class="sig-name descname"><span class="pre">Na2O</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.Na2O" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.P2O5">
+<span class="sig-name descname"><span class="pre">P2O5</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.P2O5" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.Rmax">
+<span class="sig-name descname"><span class="pre">Rmax</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.Rmax" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.SO3">
+<span class="sig-name descname"><span class="pre">SO3</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.SO3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ST">
+<span class="sig-name descname"><span class="pre">ST</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ST" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.SiO2">
+<span class="sig-name descname"><span class="pre">SiO2</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.SiO2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.T1">
+<span class="sig-name descname"><span class="pre">T1</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.T1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.T2">
+<span class="sig-name descname"><span class="pre">T2</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.T2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.T3">
+<span class="sig-name descname"><span class="pre">T3</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.T3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.TiO2">
+<span class="sig-name descname"><span class="pre">TiO2</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.TiO2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.Tk">
+<span class="sig-name descname"><span class="pre">Tk</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.Tk" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.Tk_Tp">
+<span class="sig-name descname"><span class="pre">Tk_Tp</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.Tk_Tp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.Tmax">
+<span class="sig-name descname"><span class="pre">Tmax</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.Tmax" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.Tp">
+<span class="sig-name descname"><span class="pre">Tp</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.Tp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.V">
+<span class="sig-name descname"><span class="pre">V</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.V" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.X">
+<span class="sig-name descname"><span class="pre">X</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.X" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.Y">
+<span class="sig-name descname"><span class="pre">Y</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.Y" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.a">
+<span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.a" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.amax">
+<span class="sig-name descname"><span class="pre">amax</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.amax" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ash_total">
+<span class="sig-name descname"><span class="pre">ash_total</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ash_total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.b">
+<span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.b" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.center_100_time">
+<span class="sig-name descname"><span class="pre">center_100_time</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.center_100_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.center_500_time">
+<span class="sig-name descname"><span class="pre">center_500_time</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.center_500_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.center_900_time">
+<span class="sig-name descname"><span class="pre">center_900_time</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.center_900_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_ad">
+<span class="sig-name descname"><span class="pre">coal_ad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_ad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_ada">
+<span class="sig-name descname"><span class="pre">coal_ada</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_ada" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_ana_cad">
+<span class="sig-name descname"><span class="pre">coal_ana_cad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_ana_cad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_ana_had">
+<span class="sig-name descname"><span class="pre">coal_ana_had</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_ana_had" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_ana_nad">
+<span class="sig-name descname"><span class="pre">coal_ana_nad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_ana_nad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_ana_oad">
+<span class="sig-name descname"><span class="pre">coal_ana_oad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_ana_oad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_belong">
+<span class="sig-name descname"><span class="pre">coal_belong</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_belong" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_dry_cd">
+<span class="sig-name descname"><span class="pre">coal_dry_cd</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_dry_cd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_dry_hd">
+<span class="sig-name descname"><span class="pre">coal_dry_hd</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_dry_hd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_dry_nd">
+<span class="sig-name descname"><span class="pre">coal_dry_nd</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_dry_nd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_dry_od">
+<span class="sig-name descname"><span class="pre">coal_dry_od</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_dry_od" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_drynoash_cdaf">
+<span class="sig-name descname"><span class="pre">coal_drynoash_cdaf</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_drynoash_cdaf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_drynoash_hdaf">
+<span class="sig-name descname"><span class="pre">coal_drynoash_hdaf</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_drynoash_hdaf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_drynoash_ndaf">
+<span class="sig-name descname"><span class="pre">coal_drynoash_ndaf</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_drynoash_ndaf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_drynoash_odaf">
+<span class="sig-name descname"><span class="pre">coal_drynoash_odaf</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_drynoash_odaf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_fcad">
+<span class="sig-name descname"><span class="pre">coal_fcad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_fcad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_fcd">
+<span class="sig-name descname"><span class="pre">coal_fcd</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_fcd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_mad">
+<span class="sig-name descname"><span class="pre">coal_mad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_mad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_name">
+<span class="sig-name descname"><span class="pre">coal_name</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_price">
+<span class="sig-name descname"><span class="pre">coal_price</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_price" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_std">
+<span class="sig-name descname"><span class="pre">coal_std</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_std" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_type">
+<span class="sig-name descname"><span class="pre">coal_type</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_vad">
+<span class="sig-name descname"><span class="pre">coal_vad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_vad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_vd">
+<span class="sig-name descname"><span class="pre">coal_vd</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_vd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coal_vdaf">
+<span class="sig-name descname"><span class="pre">coal_vdaf</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coal_vdaf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_1000">
+<span class="sig-name descname"><span class="pre">coke_1000</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_1000" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_1050">
+<span class="sig-name descname"><span class="pre">coke_1050</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_1050" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_10mm">
+<span class="sig-name descname"><span class="pre">coke_10mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_10mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_1100">
+<span class="sig-name descname"><span class="pre">coke_1100</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_1100" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_1150">
+<span class="sig-name descname"><span class="pre">coke_1150</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_1150" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_1200">
+<span class="sig-name descname"><span class="pre">coke_1200</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_1200" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_20_10mm">
+<span class="sig-name descname"><span class="pre">coke_20_10mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_20_10mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_25_20mm">
+<span class="sig-name descname"><span class="pre">coke_25_20mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_25_20mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_40_25mm">
+<span class="sig-name descname"><span class="pre">coke_40_25mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_40_25mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_5mm">
+<span class="sig-name descname"><span class="pre">coke_5mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_5mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_60_40mm">
+<span class="sig-name descname"><span class="pre">coke_60_40mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_60_40mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_60mm">
+<span class="sig-name descname"><span class="pre">coke_60mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_60mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_750">
+<span class="sig-name descname"><span class="pre">coke_750</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_750" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_800">
+<span class="sig-name descname"><span class="pre">coke_800</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_800" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_80_60mm">
+<span class="sig-name descname"><span class="pre">coke_80_60mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_80_60mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_80mm">
+<span class="sig-name descname"><span class="pre">coke_80mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_80mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_850">
+<span class="sig-name descname"><span class="pre">coke_850</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_850" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_900">
+<span class="sig-name descname"><span class="pre">coke_900</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_900" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_950">
+<span class="sig-name descname"><span class="pre">coke_950</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_950" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_CRI">
+<span class="sig-name descname"><span class="pre">coke_CRI</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_CRI" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_CSR">
+<span class="sig-name descname"><span class="pre">coke_CSR</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_CSR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_DT">
+<span class="sig-name descname"><span class="pre">coke_DT</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_DT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_FT">
+<span class="sig-name descname"><span class="pre">coke_FT</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_FT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_HT">
+<span class="sig-name descname"><span class="pre">coke_HT</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_HT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_M10">
+<span class="sig-name descname"><span class="pre">coke_M10</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_M10" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_M25">
+<span class="sig-name descname"><span class="pre">coke_M25</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_M25" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_M40">
+<span class="sig-name descname"><span class="pre">coke_M40</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_M40" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_ST">
+<span class="sig-name descname"><span class="pre">coke_ST</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_ST" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_aad">
+<span class="sig-name descname"><span class="pre">coke_aad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_aad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_ad">
+<span class="sig-name descname"><span class="pre">coke_ad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_ad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_apparent_porosity">
+<span class="sig-name descname"><span class="pre">coke_apparent_porosity</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_apparent_porosity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_fake_density">
+<span class="sig-name descname"><span class="pre">coke_fake_density</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_fake_density" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_fcad">
+<span class="sig-name descname"><span class="pre">coke_fcad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_fcad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_fcd">
+<span class="sig-name descname"><span class="pre">coke_fcd</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_fcd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_fineness">
+<span class="sig-name descname"><span class="pre">coke_fineness</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_fineness" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_mad">
+<span class="sig-name descname"><span class="pre">coke_mad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_mad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_moi">
+<span class="sig-name descname"><span class="pre">coke_moi</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_moi" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_real_density">
+<span class="sig-name descname"><span class="pre">coke_real_density</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_real_density" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_std">
+<span class="sig-name descname"><span class="pre">coke_std</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_std" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_sum">
+<span class="sig-name descname"><span class="pre">coke_sum</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_sum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_total_ratio">
+<span class="sig-name descname"><span class="pre">coke_total_ratio</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_total_ratio" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_vad">
+<span class="sig-name descname"><span class="pre">coke_vad</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_vad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_vd">
+<span class="sig-name descname"><span class="pre">coke_vd</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_vd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coke_vdaf">
+<span class="sig-name descname"><span class="pre">coke_vdaf</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coke_vdaf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coking_date">
+<span class="sig-name descname"><span class="pre">coking_date</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coking_date" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coking_end_temp">
+<span class="sig-name descname"><span class="pre">coking_end_temp</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coking_end_temp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coking_end_time">
+<span class="sig-name descname"><span class="pre">coking_end_time</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coking_end_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coking_process_time">
+<span class="sig-name descname"><span class="pre">coking_process_time</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coking_process_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coking_start_time">
+<span class="sig-name descname"><span class="pre">coking_start_time</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coking_start_time" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.coking_style">
+<span class="sig-name descname"><span class="pre">coking_style</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.coking_style" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.down_number">
+<span class="sig-name descname"><span class="pre">down_number</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.down_number" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.dry_quality">
+<span class="sig-name descname"><span class="pre">dry_quality</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.dry_quality" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.heap_density">
+<span class="sig-name descname"><span class="pre">heap_density</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.heap_density" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.hot_coke_qulity">
+<span class="sig-name descname"><span class="pre">hot_coke_qulity</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.hot_coke_qulity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.hot_ratio_coke">
+<span class="sig-name descname"><span class="pre">hot_ratio_coke</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.hot_ratio_coke" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.live_idle_ratio">
+<span class="sig-name descname"><span class="pre">live_idle_ratio</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.live_idle_ratio" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.micro_type">
+<span class="sig-name descname"><span class="pre">micro_type</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.micro_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.micro_var">
+<span class="sig-name descname"><span class="pre">micro_var</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.micro_var" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_05mm">
+<span class="sig-name descname"><span class="pre">ori_coal_05mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_05mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_10_8mm">
+<span class="sig-name descname"><span class="pre">ori_coal_10_8mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_10_8mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_13_10mm">
+<span class="sig-name descname"><span class="pre">ori_coal_13_10mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_13_10mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_13mm">
+<span class="sig-name descname"><span class="pre">ori_coal_13mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_13mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_1_05mm">
+<span class="sig-name descname"><span class="pre">ori_coal_1_05mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_1_05mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_2_1mm">
+<span class="sig-name descname"><span class="pre">ori_coal_2_1mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_2_1mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_3_2mm">
+<span class="sig-name descname"><span class="pre">ori_coal_3_2mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_3_2mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_4_3mm">
+<span class="sig-name descname"><span class="pre">ori_coal_4_3mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_4_3mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_5_4mm">
+<span class="sig-name descname"><span class="pre">ori_coal_5_4mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_5_4mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_6_5mm">
+<span class="sig-name descname"><span class="pre">ori_coal_6_5mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_6_5mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_8_6mm">
+<span class="sig-name descname"><span class="pre">ori_coal_8_6mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_8_6mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_fineness">
+<span class="sig-name descname"><span class="pre">ori_coal_fineness</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_fineness" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ori_coal_total">
+<span class="sig-name descname"><span class="pre">ori_coal_total</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ori_coal_total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.oven_moi">
+<span class="sig-name descname"><span class="pre">oven_moi</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.oven_moi" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.oven_type">
+<span class="sig-name descname"><span class="pre">oven_type</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.oven_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_CRI">
+<span class="sig-name descname"><span class="pre">predicted_CRI</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_CRI" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_CRI_error">
+<span class="sig-name descname"><span class="pre">predicted_CRI_error</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_CRI_error" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_CRI_expert">
+<span class="sig-name descname"><span class="pre">predicted_CRI_expert</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_CRI_expert" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_CSR">
+<span class="sig-name descname"><span class="pre">predicted_CSR</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_CSR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_CSR_error">
+<span class="sig-name descname"><span class="pre">predicted_CSR_error</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_CSR_error" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_CSR_expert">
+<span class="sig-name descname"><span class="pre">predicted_CSR_expert</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_CSR_expert" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_M10">
+<span class="sig-name descname"><span class="pre">predicted_M10</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_M10" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_M10_error">
+<span class="sig-name descname"><span class="pre">predicted_M10_error</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_M10_error" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_M10_expert">
+<span class="sig-name descname"><span class="pre">predicted_M10_expert</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_M10_expert" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_M25">
+<span class="sig-name descname"><span class="pre">predicted_M25</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_M25" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_M25_error">
+<span class="sig-name descname"><span class="pre">predicted_M25_error</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_M25_error" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.predicted_M25_expert">
+<span class="sig-name descname"><span class="pre">predicted_M25_expert</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.predicted_M25_expert" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.quench_coke_weight">
+<span class="sig-name descname"><span class="pre">quench_coke_weight</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.quench_coke_weight" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.query">
+<span class="sig-name descname"><span class="pre">query</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Query</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#coalData.CoalDataGeneration.query" title="Permalink to this definition"></a></dt>
+<dd><p>A SQLAlchemy query for a model. Equivalent to <code class="docutils literal notranslate"><span class="pre">db.session.query(Model)</span></code>. Can be
+customized per-model by overriding <code class="xref py py-attr docutils literal notranslate"><span class="pre">query_class</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The query interface is considered legacy in SQLAlchemy. Prefer using
+<code class="docutils literal notranslate"><span class="pre">session.execute(select())</span></code> instead.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.ratio_coke">
+<span class="sig-name descname"><span class="pre">ratio_coke</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.ratio_coke" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.response">
+<span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">CoalData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/coalData.html#CoalDataGeneration.response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#coalData.CoalDataGeneration.response" title="Permalink to this definition"></a></dt>
+<dd><p>该方法用于处理煤样数据（CoalData）。如果未提供CoalData，则默认为None。
+根据实际需求，可以在这里进行煤数据的处理、转换、存储等操作。</p>
+<p>此方法首先判断传入的煤样数据是否为空，如果为空，则返回一个错误提示。
+如果提供了有效的煤样数据，将依次处理每个煤样信息，并提取、计算相关数据，如焦炭质量、筛分组成、元素分析等。
+最终返回一个包含所有煤样处理信息的列表。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>CoalData</strong> – 输入的煤数据，默认为None。通常是一个包含煤样信息的数据结构（如字典、列表或数据库模型实例等）。
+CoalData中的每一项应当包含煤样的各类实验数据和参数，如筛分组成、元素分析、焦炭质量等。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>返回处理后的煤样数据列表，每项数据包括煤样的基本信息和计算出的结果。
+如果CoalData为空，则返回一个错误提示字符串。</p>
+</dd>
+</dl>
+<p>处理流程：
+1. 判断CoalData是否为None，如果是，返回错误提示；
+2. 遍历每个煤样项，提取并计算煤样的相关参数：
+2.1. 焦炭质量参数（如预测的CSR、CRI等）
+2.2. 各种煤样筛分组分数据（如煤样筛分粒度）
+2.3. 工业分析和元素分析结果
+2.4. 粘结指数、膨胀度、热性质、机械强度等其他特征
+3. 将处理后的每个煤样数据以字典的形式添加到结果列表中，并返回该列表。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma__coal_05mm">
+<span class="sig-name descname"><span class="pre">sma__coal_05mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma__coal_05mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma__coal_1_05mm">
+<span class="sig-name descname"><span class="pre">sma__coal_1_05mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma__coal_1_05mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma__coal_2_1mm">
+<span class="sig-name descname"><span class="pre">sma__coal_2_1mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma__coal_2_1mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma__coal_3_2mm">
+<span class="sig-name descname"><span class="pre">sma__coal_3_2mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma__coal_3_2mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma__coal_4_3mm">
+<span class="sig-name descname"><span class="pre">sma__coal_4_3mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma__coal_4_3mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma__coal_5_4mm">
+<span class="sig-name descname"><span class="pre">sma__coal_5_4mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma__coal_5_4mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma__coal_6_5mm">
+<span class="sig-name descname"><span class="pre">sma__coal_6_5mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma__coal_6_5mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma__coal_6mm">
+<span class="sig-name descname"><span class="pre">sma__coal_6mm</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma__coal_6mm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma__coal_total">
+<span class="sig-name descname"><span class="pre">sma__coal_total</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma__coal_total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma_coal_fineness">
+<span class="sig-name descname"><span class="pre">sma_coal_fineness</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma_coal_fineness" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.sma_coal_moi">
+<span class="sig-name descname"><span class="pre">sma_coal_moi</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.sma_coal_moi" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="coalData.CoalDataGeneration.up_temper">
+<span class="sig-name descname"><span class="pre">up_temper</span></span><a class="headerlink" href="#coalData.CoalDataGeneration.up_temper" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../developer/updates.html" class="btn btn-neutral float-left" title="程序的修改与维护" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="coal_quality_model_AI.html" class="btn btn-neutral float-right" title="coal_quality_model_AI module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuhang Qiu, Haodong Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

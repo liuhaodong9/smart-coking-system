@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>开发者帮助文档 &mdash; Smart Coking System Documentation v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/modify.css?v=49f62740" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=aabfef7a"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="安装指南" href="installation.html" />
+    <link rel="prev" title="智慧焦化用户手册" href="../user/overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Smart Coking System Documentation
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/overview.html">智慧焦化用户手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">开发者帮助文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#system-architecture">系统架构（System Architecture）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#framework-diagram">技术框架示意（Framework Diagram）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d-glb">三维模型 / 二维设计（点击标题下载 3D GLB）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">配煤 (GLB)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">输送 (GLB)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">装煤 (GLB)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">加热 (GLB)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">推焦 (GLB)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">干熄焦 (GLB)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#technical-workflow">技术流程（Technical Workflow）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-case-diagram">用例图（Use Case Diagram）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-data-flow">系统数据流（System Data Flow）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">主要技术栈</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">关键特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">扩展与维护</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blender.html">Blender 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updates.html">程序的修改与维护</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/coalData.html">coalData module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/coal_quality_model_AI.html">coal_quality_model_AI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/DataProcess.html">DataProcess Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/Example.html">Example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy1.html">genetic_algorithm_geatpy1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy2.html">genetic_algorithm_geatpy2 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/login.html">login module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ModelPredict.html">ModelPredict module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/typeClassfication.html">typeClassfication module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Smart Coking System Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">开发者帮助文档</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developer/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>开发者帮助文档<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>智慧焦化软件是一款面向炼焦厂操作人员和工艺工程师的数字化管控平台，覆盖了 <strong>配煤、输送、装煤、加热炼焦、推焦、熄焦</strong> 全流程设备。用户通过三维数字孪生界面实时监控并一键控制现场 PLC，系统则以秒级闭环将关键数据回写至界面，帮助快速定位异常、降低人工与能耗成本。</p>
+<nav class="contents local" id="id2">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#system-architecture" id="id17">系统架构（System Architecture）</a></p></li>
+<li><p><a class="reference internal" href="#framework-diagram" id="id18">技术框架示意（Framework Diagram）</a></p></li>
+<li><p><a class="reference internal" href="#d-glb" id="id19">三维模型 / 二维设计（点击标题下载 3D GLB）</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id20">配煤 (GLB)</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id21">输送 (GLB)</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id22">装煤 (GLB)</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id23">加热 (GLB)</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id24">推焦 (GLB)</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id25">干熄焦 (GLB)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#technical-workflow" id="id26">技术流程（Technical Workflow）</a></p></li>
+<li><p><a class="reference internal" href="#use-case-diagram" id="id27">用例图（Use Case Diagram）</a></p></li>
+<li><p><a class="reference internal" href="#system-data-flow" id="id28">系统数据流（System Data Flow）</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id29">主要技术栈</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id30">关键特性</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id31">扩展与维护</a></p></li>
+</ul>
+</nav>
+<section id="system-architecture">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">系统架构（System Architecture）</a><a class="headerlink" href="#system-architecture" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/developer_documentation/overview_architecture.png"><img alt="系统架构总览" src="_images/developer_documentation/overview_architecture.png" style="width: 100%;" /></a>
+<p>如上图所示，系统由 <strong>边缘层、平台层、应用层</strong> 三部分组成：</p>
+<ul class="simple">
+<li><p><strong>边缘层</strong>：PLC、变频器与传感器通过 Modbus/TCP 与工控机通信，边缘网关把现场信号转为 MQTT。</p></li>
+<li><p><strong>平台层</strong>：云端 API（Flask）负责业务逻辑，TimescaleDB 存储时序数据，MinIO 归档文件，RabbitMQ 缓冲异步任务。</p></li>
+<li><p><strong>应用层</strong>：Vue.js + Three.js 前端渲染 3D 场景并通过 WebSocket 收发实时数据。</p></li>
+</ul>
+</section>
+<section id="framework-diagram">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">技术框架示意（Framework Diagram）</a><a class="headerlink" href="#framework-diagram" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/developer_documentation/framework_diagram.png"><img alt="技术框架" src="_images/developer_documentation/framework_diagram.png" style="width: 100%;" /></a>
+<ul class="simple">
+<li><p><strong>Vue 3 + Pinia + Three.js</strong> — 数字孪生 UI 与状态管理</p></li>
+<li><p><strong>Flask / FastAPI</strong> — 提供 REST + WebSocket；后台任务用 Celery</p></li>
+<li><p><strong>MySQL + TimescaleDB</strong> — 分别存储主数据与高频时序数据</p></li>
+<li><p><strong>MQTT</strong> — 边云消息通道；QoS1 保证命令必达</p></li>
+<li><p><strong>TensorFlow / XGBoost</strong> — AI 预测模型服务</p></li>
+</ul>
+</section>
+<section id="d-glb">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">三维模型 / 二维设计（点击标题下载 3D GLB）</a><a class="headerlink" href="#d-glb" title="Permalink to this heading"></a></h2>
+<section id="id3">
+<h3><a class="reference external" href="../_static/models/blending.glb">配煤 (GLB)</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="_images/developer_documentation/2d/blending_layout.png"><img alt="配煤流程图 + 3D 视图" src="_images/developer_documentation/2d/blending_layout.png" style="width: 100%;" /></a>
+</section>
+<section id="id5">
+<h3><a class="reference external" href="../_static/models/conveying.glb">输送 (GLB)</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="_images/developer_documentation/2d/conveying_layout.png"><img alt="输送皮带平面 + 3D 视图" src="_images/developer_documentation/2d/conveying_layout.png" style="width: 100%;" /></a>
+</section>
+<section id="id7">
+<h3><a class="reference external" href="../_static/models/charging.glb">装煤 (GLB)</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="_images/developer_documentation/2d/charging_topview.svg"><img alt="炉顶装煤定位 + 3D 视图" src="_images/developer_documentation/2d/charging_topview.svg" width="100%" /></a>
+</section>
+<section id="id9">
+<h3><a class="reference external" href="../_static/models/heating.glb">加热 (GLB)</a><a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="_images/developer_documentation/2d/heating_section.png"><img alt="炉体加热剖面 + 3D 视图" src="_images/developer_documentation/2d/heating_section.png" style="width: 100%;" /></a>
+</section>
+<section id="id11">
+<h3><a class="reference external" href="../_static/models/pushing.glb">推焦 (GLB)</a><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="_images/developer_documentation/2d/pushing_schedule.svg"><img alt="推焦调度甘特 + 3D 视图" src="_images/developer_documentation/2d/pushing_schedule.svg" width="100%" /></a>
+</section>
+<section id="id13">
+<h3><a class="reference external" href="../_static/models/quenching_dry.glb">干熄焦 (GLB)</a><a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="_images/developer_documentation/2d/quenching_flow.png"><img alt="干熄焦流程 + 3D 视图" src="_images/developer_documentation/2d/quenching_flow.png" style="width: 100%;" /></a>
+</section>
+</section>
+<section id="technical-workflow">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">技术流程（Technical Workflow）</a><a class="headerlink" href="#technical-workflow" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/developer_documentation/technical_flow.png"><img alt="技术流程" src="_images/developer_documentation/technical_flow.png" style="width: 100%;" /></a>
+<ol class="arabic simple">
+<li><p><strong>浏览器操作</strong> → Vue 触发 REST 调用</p></li>
+<li><p><strong>云端 API</strong> 将指令写入 MQTT Topic</p></li>
+<li><p><strong>边缘网关</strong> 订阅 Topic 并下发 PLC</p></li>
+<li><p><strong>PLC</strong> 驱动电机 / 阀门 → 现场执行</p></li>
+<li><p><strong>实时数据</strong> 经网关上传 TimescaleDB；WebSocket 推送至前端</p></li>
+</ol>
+</section>
+<section id="use-case-diagram">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">用例图（Use Case Diagram）</a><a class="headerlink" href="#use-case-diagram" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="../_images/use_case_diagram.png"><img alt="用例图" src="../_images/use_case_diagram.png" style="width: 80%;" /></a>
+<p><strong>Actor</strong></p>
+<ul class="simple">
+<li><p><em>操作员</em> — 通过数字孪生界面控制 / 监控设备</p></li>
+<li><p><em>工艺工程师</em> — 分析质量数据并调整配煤策略</p></li>
+<li><p><em>维保人员</em> — 接收告警并执行维护工单</p></li>
+</ul>
+<p><strong>核心用例</strong></p>
+<ul class="simple">
+<li><p><em>启动 / 停止设备</em> — 对单台或批量设备下达启停指令</p></li>
+<li><p><em>调整工艺参数</em> — 修改配煤比例、炉温设定等关键参数</p></li>
+<li><p><em>实时监控</em> — 在 3D 场景中查看运行状态与传感器数据</p></li>
+<li><p><em>异常告警</em> — 实时弹窗并推送至移动端</p></li>
+<li><p><em>数据报表</em> — 导出生产统计与能耗分析</p></li>
+</ul>
+</section>
+<section id="system-data-flow">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">系统数据流（System Data Flow）</a><a class="headerlink" href="#system-data-flow" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="../_images/data_flow.png"><img alt="数据流" src="../_images/data_flow.png" style="width: 100%;" /></a>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>序号</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><strong>用户输入</strong> — Vue 发送 API</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><strong>命令下发</strong> — Flask→MQTT</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><strong>设备执行</strong> — PLC→现场</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><strong>数据回传</strong> — 传感器→DB</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p><strong>界面刷新</strong> — WebSocket</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id14">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">主要技术栈</a><a class="headerlink" href="#id14" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Three.js 可视化</strong> — 数字孪生 3D 模型</p></li>
+<li><p><strong>Pinia 状态管理</strong> — 替代 Vuex，轻量响应式</p></li>
+<li><p><strong>Vue-Router</strong> — 单页导航</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>REST / WebSocket</strong> — 同步命令 + 实时推送</p></li>
+<li><p><strong>SQLAlchemy</strong> — ORM 访问 MySQL</p></li>
+<li><p><strong>Celery + Redis</strong> — 异步任务与调度</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>MySQL</strong> — 业务主数据（用户、设备表）</p></li>
+<li><p><strong>TimescaleDB</strong> — 毫秒级时序数据（温度、压力、电流）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>MQTT</strong> — QoS1，主题粒度到设备 / 点位</p></li>
+<li><p><strong>EdgeX Foundry</strong> — 设备虚拟化与协议适配</p></li>
+</ul>
+</section>
+<section id="id15">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">关键特性</a><a class="headerlink" href="#id15" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>秒级闭环</strong> — 操作 → 执行 → 反馈 &lt; 2 s</p></li>
+<li><p><strong>热插拔模型</strong> — AI 服务与业务解耦，可独立升级</p></li>
+<li><p><strong>高可用</strong> — 双实例 Flask + MySQL 主从 + TimescaleDB 流复制</p></li>
+</ul>
+</section>
+<section id="id16">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">扩展与维护</a><a class="headerlink" href="#id16" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>模块化部署</strong> — Docker Compose 一键拉起；生产可切换 Kubernetes</p></li>
+<li><p><strong>CI/CD</strong> — GitHub Actions 自动测试、打包与推镜像</p></li>
+<li><p><strong>可观测性</strong> — Prometheus + Grafana 监控 API 延迟与设备在线率</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../user/overview.html" class="btn btn-neutral float-left" title="智慧焦化用户手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="安装指南" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuhang Qiu, Haodong Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

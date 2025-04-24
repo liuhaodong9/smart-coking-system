@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blender 教程 &mdash; Smart Coking System Documentation v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/modify.css?v=49f62740" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=aabfef7a"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="程序的修改与维护" href="updates.html" />
+    <link rel="prev" title="安装指南" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Smart Coking System Documentation
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/overview.html">智慧焦化用户手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">开发者帮助文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">安装指南</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Blender 教程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#shader-editor">步骤 1：打开 Shader Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">步骤 2：选择对象和材质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#principled-bsdf">步骤 3：连接渐变到 Principled BSDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uv">步骤 4：确保 UV 映射正确</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#image-texture">步骤 5：添加 Image Texture 准备烘焙</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bake">步骤 6：设置 Bake 并执行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">步骤 7：保存烘焙贴图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">步骤 8：在材质中使用烘焙贴图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gltf">步骤 9：导出为 glTF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">步骤 10：验证结果</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="updates.html">程序的修改与维护</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/coalData.html">coalData module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/coal_quality_model_AI.html">coal_quality_model_AI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/DataProcess.html">DataProcess Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/Example.html">Example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy1.html">genetic_algorithm_geatpy1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy2.html">genetic_algorithm_geatpy2 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/login.html">login module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ModelPredict.html">ModelPredict module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/typeClassfication.html">typeClassfication module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Smart Coking System Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Blender 教程</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developer/blender.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="blender">
+<h1>Blender 教程<a class="headerlink" href="#blender" title="Permalink to this heading"></a></h1>
+<p>本文档演示如何在 <strong>Blender 4.x</strong> 中，为模型制作渐变贴图、烘焙到纹理，并导出为 <strong>glTF 2.0 / .glb</strong> 文件。</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#shader-editor" id="id7">步骤 1：打开 Shader Editor</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id8">步骤 2：选择对象和材质</a></p></li>
+<li><p><a class="reference internal" href="#principled-bsdf" id="id9">步骤 3：连接渐变到 Principled BSDF</a></p></li>
+<li><p><a class="reference internal" href="#uv" id="id10">步骤 4：确保 UV 映射正确</a></p></li>
+<li><p><a class="reference internal" href="#image-texture" id="id11">步骤 5：添加 Image Texture 准备烘焙</a></p></li>
+<li><p><a class="reference internal" href="#bake" id="id12">步骤 6：设置 Bake 并执行</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id13">步骤 7：保存烘焙贴图</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id14">步骤 8：在材质中使用烘焙贴图</a></p></li>
+<li><p><a class="reference internal" href="#gltf" id="id15">步骤 9：导出为 glTF</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id16">步骤 10：验证结果</a></p></li>
+</ul>
+</nav>
+<section id="shader-editor">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">步骤 1：打开 Shader Editor</a><a class="headerlink" href="#shader-editor" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>切换到 <strong>Shading</strong> 工作区
+在 Blender 顶部菜单栏点击 <strong>Shading</strong>，即可同时看到 3D 视图与 <strong>Shader Editor</strong>。</p></li>
+</ol>
+</section>
+<section id="id1">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">步骤 2：选择对象和材质</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>选择模型</strong>
+在 3D 视图中点击目标对象。</p></li>
+<li><p><strong>确认材质</strong>
+右侧属性栏点击圆球图标（材质）。若对象尚无材质，点击 <strong>New</strong> 新建。</p></li>
+</ol>
+</section>
+<section id="principled-bsdf">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">步骤 3：连接渐变到 Principled BSDF</a><a class="headerlink" href="#principled-bsdf" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>查看节点</strong>
+在 Shader Editor 里应能看到 <em>Principled BSDF</em> → <em>Material Output</em>。</p></li>
+<li><p><strong>添加 ColorRamp</strong>
+<cite>Shift +A</cite> → <cite>Color &gt; ColorRamp</cite>。</p></li>
+<li><p><strong>连接节点</strong>
+将 <strong>ColorRamp</strong> 的 <em>Color</em> 接口拖到 <em>Principled BSDF</em> 的 <strong>Base Color</strong>。</p></li>
+</ol>
+<img alt="ColorRamp 连接示意" src="developer/_images/coloramp_to_bsdf.png" />
+</section>
+<section id="uv">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">步骤 4：确保 UV 映射正确</a><a class="headerlink" href="#uv" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>切换到 <strong>UV Editing</strong> 工作区。</p></li>
+<li><p>选中对象后按 <strong>Tab</strong> 进入编辑模式。</p></li>
+<li><p><cite>A</cite> 全选 → <cite>U</cite> → <em>Smart UV Project*（或 *Unwrap</em>）。</p></li>
+<li><p>在左侧 UV 编辑窗口调整展平结果。</p></li>
+</ol>
+<img alt="Smart UV Project 操作示意" src="developer/_images/smart_uv_project.png" />
+</section>
+<section id="image-texture">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">步骤 5：添加 Image Texture 准备烘焙</a><a class="headerlink" href="#image-texture" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>回到 <strong>Shading</strong> 工作区。</p></li>
+<li><p><cite>Shift +A</cite> → <cite>Texture &gt; Image Texture</cite>。</p></li>
+<li><p>在节点内点击 <strong>New</strong>，命名 <em>GradientBake</em>，分辨率 1024×1024。</p></li>
+<li><p><strong>暂时</strong> 把 <em>Image Texture</em> 的 <strong>Color</strong> 输出连到 <em>BSDF.Base Color</em>，替代 ColorRamp。</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>只有将 <em>Image Texture</em> 设为 <strong>激活/高亮</strong>，Blender 才会把烘焙结果写入这张图。</p>
+</div>
+</section>
+<section id="bake">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">步骤 6：设置 Bake 并执行</a><a class="headerlink" href="#bake" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>右侧 <strong>Render Properties</strong> 设渲染器为 <strong>Cycles</strong>。</p></li>
+<li><p>展开 <strong>Bake</strong> 面板：</p>
+<ul class="simple">
+<li><p><strong>Bake Type</strong> 选 <strong>Diffuse</strong></p></li>
+<li><p>取消 <em>Direct</em> 与 <em>Indirect</em>，只保留 <strong>Color</strong></p></li>
+</ul>
+</li>
+<li><p>确保 <em>GradientBake</em> 图像处于选中状态。</p></li>
+<li><p>点击 <strong>Bake</strong>，等待进度条完成。</p></li>
+</ol>
+<img alt="Bake 面板设置" src="developer/_images/bake_settings.png" />
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">步骤 7：保存烘焙贴图</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Image &gt; Save As  ➜  gradient_bake.png
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">步骤 8：在材质中使用烘焙贴图</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>确认 <em>Image Texture</em> 节点加载了 <strong>gradient_bake.png</strong>。</p></li>
+<li><p>让其 <strong>Color</strong> 输出长期连接到 <em>BSDF.Base Color</em>。</p></li>
+<li><p>可以删除或旁路原 ColorRamp 节点。</p></li>
+</ol>
+</section>
+<section id="gltf">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">步骤 9：导出为 glTF</a><a class="headerlink" href="#gltf" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>3D 视图中 <cite>A</cite> 或单选对象。</p></li>
+<li><p><strong>File ➜ Export ➜ glTF 2.0</strong>。</p></li>
+<li><p>关键选项：</p>
+<ul class="simple">
+<li><p><strong>Format</strong> 选 <strong>glTF Binary (.glb)</strong></p></li>
+<li><p>勾选 <a href="#id4"><span class="problematic" id="id5">**</span></a>Selected Objects**（按需）</p></li>
+<li><p><strong>Images</strong> 设为 <strong>Embed</strong>，将贴图嵌入 .glb</p></li>
+</ul>
+</li>
+</ol>
+<img alt="glTF 导出设置示意" src="developer/_images/gltf_export.png" />
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">步骤 10：验证结果</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>使用 <strong>Windows 3D Viewer</strong>、Babylon.js <em>Sandbox</em> 或任何在线 glTF Viewer 打开导出的 .glb。</p></li>
+<li><p>检查渐变是否正确，无色偏、无贴图丢失。</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="安装指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="updates.html" class="btn btn-neutral float-right" title="程序的修改与维护" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuhang Qiu, Haodong Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

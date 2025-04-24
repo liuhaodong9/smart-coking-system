@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>智慧焦化用户手册 &mdash; Smart Coking System Documentation v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/modify.css?v=49f62740" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=aabfef7a"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="开发者帮助文档" href="../developer/overview.html" />
+    <link rel="prev" title="Welcome to smart-coking system’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Smart Coking System Documentation
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">智慧焦化用户手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#blending">配煤（Blending）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conveying">输送（Conveying）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#charging">装煤（Charging）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heating">加热（Heating）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pushing">推焦（Pushing）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dry-quenching">干熄焦（Dry Quenching）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">用户参数数据流</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/overview.html">开发者帮助文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/blender.html">Blender 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/updates.html">程序的修改与维护</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/coalData.html">coalData module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/coal_quality_model_AI.html">coal_quality_model_AI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/DataProcess.html">DataProcess Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/Example.html">Example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy1.html">genetic_algorithm_geatpy1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy2.html">genetic_algorithm_geatpy2 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/login.html">login module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ModelPredict.html">ModelPredict module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/typeClassfication.html">typeClassfication module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Smart Coking System Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">智慧焦化用户手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/user/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>智慧焦化用户手册<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>本手册面向一线操作员和工艺工程师，讲解如何在 <strong>浏览器 Web 界面</strong> 完成配煤、输送、装煤、加热、推焦、干熄焦六大环节的日常操作，并说明关键参数在各环节中的传递与作用。</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#blending" id="id3">配煤（Blending）</a></p></li>
+<li><p><a class="reference internal" href="#conveying" id="id4">输送（Conveying）</a></p></li>
+<li><p><a class="reference internal" href="#charging" id="id5">装煤（Charging）</a></p></li>
+<li><p><a class="reference internal" href="#heating" id="id6">加热（Heating）</a></p></li>
+<li><p><a class="reference internal" href="#pushing" id="id7">推焦（Pushing）</a></p></li>
+<li><p><a class="reference internal" href="#dry-quenching" id="id8">干熄焦（Dry Quenching）</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id9">用户参数数据流</a></p></li>
+</ul>
+</nav>
+<section id="blending">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">配煤（Blending）</a><a class="headerlink" href="#blending" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/user_manual/blending_ui.png"><img alt="配煤界面" src="_images/user_manual/blending_ui.png" style="width: 100%;" /></a>
+<p><strong>页面要点</strong></p>
+<ul class="simple">
+<li><p>仓位/料位（% &amp; t）</p></li>
+<li><p>配比设定输入框（%）</p></li>
+<li><p>即时流量 t/h —— 数字面板，偏差 ±5 % 变橙</p></li>
+<li><p>给料电机电流 —— 过载变红闪烁</p></li>
+<li><p>流量 1 h 趋势曲线</p></li>
+</ul>
+<p><strong>常用操作</strong></p>
+<ol class="arabic simple">
+<li><p>修改 <strong>配比</strong> → 回车生效</p></li>
+<li><p>观察 <strong>流量</strong> 与 <strong>电流</strong> 是否平稳</p></li>
+<li><p>流量偏差大时重新调整配比</p></li>
+</ol>
+</section>
+<section id="conveying">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">输送（Conveying）</a><a class="headerlink" href="#conveying" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/user_manual/convey_ui.png"><img alt="输送界面" src="_images/user_manual/convey_ui.png" style="width: 100%;" /></a>
+<ul class="simple">
+<li><p>皮带启停按钮（灰=停，绿=运行）</p></li>
+<li><p>速度设定 0.8–1.6 m/s</p></li>
+<li><p>输送量 t/h、皮带负荷进度条</p></li>
+<li><p>电机电流仪表（红区=过载）</p></li>
+<li><p>跑偏 / 张紧报警灯</p></li>
+</ul>
+</section>
+<section id="charging">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">装煤（Charging）</a><a class="headerlink" href="#charging" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/user_manual/charging_ui.png"><img alt="装煤界面" src="_images/user_manual/charging_ui.png" style="width: 100%;" /></a>
+<ul class="simple">
+<li><p>选择炉号 → <strong>开始装煤</strong></p></li>
+<li><p>目标量 / 已装量 (%) 圆环进度</p></li>
+<li><p>炉顶压力 kPa —— 超限红灯</p></li>
+<li><p>给料电流曲线 —— 判断卡料</p></li>
+<li><p>装煤完毕自动切换到加热页面</p></li>
+</ul>
+</section>
+<section id="heating">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">加热（Heating）</a><a class="headerlink" href="#heating" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/user_manual/heating_ui.png"><img alt="加热界面" src="_images/user_manual/heating_ui.png" style="width: 100%;" /></a>
+<ul class="simple">
+<li><p>炉号状态灯：红=炼焦中，黄=缓冷，绿=可推焦</p></li>
+<li><p>炉温 / 炉压 曲线（可叠前一炉对比）</p></li>
+<li><p>煤气阀门开度 (%)、炉墙/炉顶温度</p></li>
+<li><p>双击数字可修改 <strong>目标温度 / 时间</strong></p></li>
+</ul>
+</section>
+<section id="pushing">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">推焦（Pushing）</a><a class="headerlink" href="#pushing" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/user_manual/pushing_ui.png"><img alt="推焦调度界面" src="_images/user_manual/pushing_ui.png" style="width: 100%;" /></a>
+<ul class="simple">
+<li><p>计划推焦 / 装煤时间表格</p></li>
+<li><p>绿灯=可推焦 → 点击 <strong>推焦</strong></p></li>
+<li><p>推焦行程进度条 (%)</p></li>
+<li><p>推焦电机电流 A（异常闪红）</p></li>
+<li><p>导焦车 / 干熄车到位信号灯</p></li>
+</ul>
+</section>
+<section id="dry-quenching">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">干熄焦（Dry Quenching）</a><a class="headerlink" href="#dry-quenching" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/user_manual/quenching_dry_ui.png"><img alt="干熄焦界面" src="_images/user_manual/quenching_dry_ui.png" style="width: 100%;" /></a>
+<ul class="simple">
+<li><p><strong>循环风机</strong> 启停 / 转速 (%)</p></li>
+<li><p>顶部 / 底部气体温度 ℃ —— 超 750/300 °C 红警</p></li>
+<li><p>冷却室压力 kPa —— 偏 ±2 kPa 黄警</p></li>
+<li><p><strong>蒸汽产量</strong> t/h（低产量橙色）</p></li>
+<li><p>焦炭床温度曲线 — 温度 &lt; 200 °C 绿灯亮</p></li>
+<li><p>熄焦计时器 mm:ss</p></li>
+</ul>
+<p><strong>操作顺序</strong></p>
+<ol class="arabic simple">
+<li><p>推焦完成 → 界面自动启动循环风机</p></li>
+<li><p>调整 <strong>风机转速</strong> / <strong>挡板阀</strong> 控制降温速率</p></li>
+<li><p>关注 <strong>床温曲线</strong>，降至 200 °C 以下</p></li>
+<li><p>绿灯亮 → 点击 <strong>出焦</strong> 结束本炉次</p></li>
+</ol>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">用户参数数据流</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/user_manual/user_data_flow.png"><img alt="六环节参数流向" src="_images/user_manual/user_data_flow.png" style="width: 100%;" /></a>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>环节</p></th>
+<th class="head"><p>用户输入</p></th>
+<th class="head"><p>界面输出</p></th>
+<th class="head"><p>作用于下游</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>配煤</p></td>
+<td><p>配比 (%)</p></td>
+<td><p>流量、料位</p></td>
+<td><p>输送负荷</p></td>
+</tr>
+<tr class="row-odd"><td><p>输送</p></td>
+<td><p>皮带启停、速度</p></td>
+<td><p>输送量、电流</p></td>
+<td><p>装煤供料</p></td>
+</tr>
+<tr class="row-even"><td><p>装煤</p></td>
+<td><p>炉号、目标量</p></td>
+<td><p>已装量、炉顶压</p></td>
+<td><p>加热初温</p></td>
+</tr>
+<tr class="row-odd"><td><p>加热</p></td>
+<td><p>目标温度 / 时间</p></td>
+<td><p>炉温曲线、状态灯</p></td>
+<td><p>推焦时机</p></td>
+</tr>
+<tr class="row-even"><td><p>推焦</p></td>
+<td><p>推焦启动</p></td>
+<td><p>行程、电流、到位灯</p></td>
+<td><p>干熄开始</p></td>
+</tr>
+<tr class="row-odd"><td><p>干熄焦</p></td>
+<td colspan="2"><p>风机启停 / 转速、挡板开度 | 气体温度、压力、蒸汽量、床温曲线</p></td>
+<td><p>出焦运输</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to smart-coking system’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../developer/overview.html" class="btn btn-neutral float-right" title="开发者帮助文档" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuhang Qiu, Haodong Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

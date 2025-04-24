@@ -1,0 +1,1916 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>login module &mdash; Smart Coking System Documentation v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/modify.css?v=49f62740" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=aabfef7a"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ModelPredict module" href="ModelPredict.html" />
+    <link rel="prev" title="genetic_algorithm_geatpy2 module" href="genetic_algorithm_geatpy2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Smart Coking System Documentation
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/overview.html">智慧焦化用户手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/overview.html">开发者帮助文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/blender.html">Blender 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/updates.html">程序的修改与维护</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="coalData.html">coalData module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coal_quality_model_AI.html">coal_quality_model_AI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataProcess.html">DataProcess Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example.html">Example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genetic_algorithm_geatpy1.html">genetic_algorithm_geatpy1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genetic_algorithm_geatpy2.html">genetic_algorithm_geatpy2 module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">login module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#login.ClassifyUserCoalData"><code class="docutils literal notranslate"><span class="pre">ClassifyUserCoalData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.DownloaUserGuide"><code class="docutils literal notranslate"><span class="pre">DownloaUserGuide()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.Download"><code class="docutils literal notranslate"><span class="pre">Download()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.deleteCoalData"><code class="docutils literal notranslate"><span class="pre">deleteCoalData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.get31JiaoCoalgData"><code class="docutils literal notranslate"><span class="pre">get31JiaoCoalgData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getClassifyData"><code class="docutils literal notranslate"><span class="pre">getClassifyData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getClassifyResult"><code class="docutils literal notranslate"><span class="pre">getClassifyResult()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getCokeQualityResultAIDecisionTree"><code class="docutils literal notranslate"><span class="pre">getCokeQualityResultAIDecisionTree()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getCokeQualityfyeResultAI"><code class="docutils literal notranslate"><span class="pre">getCokeQualityfyeResultAI()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getCokeQualityfyeResultAIKNN"><code class="docutils literal notranslate"><span class="pre">getCokeQualityfyeResultAIKNN()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getCokeQualityfyeResultAILinear"><code class="docutils literal notranslate"><span class="pre">getCokeQualityfyeResultAILinear()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getCokeQualityfyeResultAIRF"><code class="docutils literal notranslate"><span class="pre">getCokeQualityfyeResultAIRF()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getCokeQualityfyeResultAISVR"><code class="docutils literal notranslate"><span class="pre">getCokeQualityfyeResultAISVR()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getCokeQualityfyeResultAIXGBoost"><code class="docutils literal notranslate"><span class="pre">getCokeQualityfyeResultAIXGBoost()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getCokeQualityfyeResultCNN"><code class="docutils literal notranslate"><span class="pre">getCokeQualityfyeResultCNN()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getData"><code class="docutils literal notranslate"><span class="pre">getData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getDetailedData"><code class="docutils literal notranslate"><span class="pre">getDetailedData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getFeiCoalgData"><code class="docutils literal notranslate"><span class="pre">getFeiCoalgData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getJiaoCoalData"><code class="docutils literal notranslate"><span class="pre">getJiaoCoalData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getQiCoalData"><code class="docutils literal notranslate"><span class="pre">getQiCoalData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getQiFeiCoalData"><code class="docutils literal notranslate"><span class="pre">getQiFeiCoalData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.getShouCoalData"><code class="docutils literal notranslate"><span class="pre">getShouCoalData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.login"><code class="docutils literal notranslate"><span class="pre">login()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.predictBestRatio"><code class="docutils literal notranslate"><span class="pre">predictBestRatio()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.predictBlendCoal"><code class="docutils literal notranslate"><span class="pre">predictBlendCoal()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.setup_seed"><code class="docutils literal notranslate"><span class="pre">setup_seed()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.uploadClassifyResult"><code class="docutils literal notranslate"><span class="pre">uploadClassifyResult()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.uploadCoalData"><code class="docutils literal notranslate"><span class="pre">uploadCoalData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.uploadQualityResult"><code class="docutils literal notranslate"><span class="pre">uploadQualityResult()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.uploadUserClassifyResult"><code class="docutils literal notranslate"><span class="pre">uploadUserClassifyResult()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login.uploadUserCoalData"><code class="docutils literal notranslate"><span class="pre">uploadUserCoalData()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ModelPredict.html">ModelPredict module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typeClassfication.html">typeClassfication module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Smart Coking System Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">login module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/login.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-login">
+<span id="login-module"></span><h1>login module<a class="headerlink" href="#module-login" title="Permalink to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="login.ClassifyUserCoalData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">ClassifyUserCoalData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/login.html#ClassifyUserCoalData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.ClassifyUserCoalData" title="Permalink to this definition"></a></dt>
+<dd><p>用户上传煤数据分类预测接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>如果使用 POST 方法上传数据，文件会被读取并根据预设模型进行分类预测。</p></li>
+<li><p>将 Excel 文件中的数据逐条读取，提取必要的参数。</p></li>
+<li><p>使用模型进行分类预测，并保存每条数据的预测结果。</p></li>
+<li><p>返回包含预测结果的 JSON 响应。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传煤数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含预测结果的 JSON 格式响应，其中每条预测结果包含以下字段:</dt><dd><ul class="simple">
+<li><p>id (int): 样本的唯一标识。</p></li>
+<li><p>name (str): 样本名称。</p></li>
+<li><p>predicted_type (str): 预测的煤分类结果或 “判据不足”。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>上传煤数据进行分类预测:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>请求:
+POST /ClassifyUserCoalData
+（请求应上传一个包含以下字段的 Excel 文件）
+
+Excel 数据示例:
++----+------------+----------+-----+-----+-----+-----+-----+-----+
+| id | 煤样名称    | 煤样挥发分(Vdaf) | 氢(Hdaf) | G   | Y   | b/% |
++----+------------+----------+-----+-----+-----+-----+-----+-----+
+| 1  | Coal A     | 25.3     | 5.6 | 1.2 | 3.4 | 0.9 |     |     |
++----+------------+----------+-----+-----+-----+-----+-----+-----+
+
+返回:
+[
+    {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Coal A&quot;,
+        &quot;predicted_type&quot;: &quot;Type 1&quot;
+    }
+]
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>输入的 Excel 文件应符合指定格式，列名包括 ‘煤样挥发分(Vdaf)’, ‘氢(Hdaf)’, ‘G’, ‘Y’, ‘b/%’, ‘煤样名称’。</p></li>
+<li><p>如果某些字段缺失或数据格式不正确，可能导致预测失败。</p></li>
+<li><p>模型返回 <cite>False</cite> 表示判据不足，无法分类。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.DownloaUserGuide">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">DownloaUserGuide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/login.html#DownloaUserGuide"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.DownloaUserGuide" title="Permalink to this definition"></a></dt>
+<dd><p>下载用户手册接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>当访问 <cite>/userguidedownload</cite> 路径时，返回系统用户手册的文件。</p></li>
+<li><p>用户手册文件是一个 PDF 文件，包含系统使用说明。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 GET 请求触发下载）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>Flask response: 返回用户手册文件作为附件下载。</p>
+</dd>
+<dt>示例:</dt><dd><p>使用 GET 请求下载用户手册:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>请求:
+GET /userguidedownload
+
+返回:
+浏览器会弹出下载对话框，提供以下文件下载。
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>确保用户手册文件路径正确且文件存在，否则可能引发 404 错误。</p></li>
+<li><p>下载的文件名为 <cite>用于焦炭质量预测与配煤智能化决策的AI辅助专家系统_用户手册.pdf</cite>。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.Download">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">Download</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="reference internal" href="../_modules/login.html#Download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.Download" title="Permalink to this definition"></a></dt>
+<dd><p>下载煤数据上传模板接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>当访问 <cite>/templatedownload</cite> 路径时，返回煤数据上传参考模板的文件。</p></li>
+<li><p>模板文件是一个 Excel 文件，包含上传数据所需的字段格式说明。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 GET 请求触发下载）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>Flask response: 返回模板文件作为附件下载。</p>
+</dd>
+<dt>示例:</dt><dd><p>使用 GET 请求下载模板文件:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>请求:
+GET /templatedownload
+
+返回:
+浏览器会弹出下载对话框，提供以下文件下载:
+上传数据参考模板.xlsx
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>确保模板文件路径正确且文件存在，否则可能引发 404 错误。</p></li>
+<li><p>下载的文件名为 <cite>上传数据参考模板.xlsx</cite>。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.deleteCoalData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">deleteCoalData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#deleteCoalData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.deleteCoalData" title="Permalink to this definition"></a></dt>
+<dd><p>根据煤数据的 ID 删除煤的详细信息接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><p>对于 POST 请求，通过传递的煤数据 ID 删除对应的记录。如果未提供 ID 或记录不存在，返回相应的错误信息。</p>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 HTTP 请求传递煤数据 ID）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>str: 删除操作的结果信息。</p>
+<blockquote>
+<div><p>成功时返回 “delete successfully”。</p>
+<p>如果 ID 对应的记录不存在，返回 “Coal data not found” 和 HTTP 状态码 404。</p>
+</div></blockquote>
+</dd>
+<dt>示例:</dt><dd><p>1. 删除煤数据记录:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>请求:
+POST /deleteCoalData?id=5
+
+返回:
+&quot;delete successfully&quot;
+</pre></div>
+</div>
+<p>2. 记录不存在时:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>请求:
+POST /deleteCoalData?id=100
+
+返回:
+&quot;Coal data not found&quot;, 404
+</pre></div>
+</div>
+<p>3. 缺少 ID 参数时:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">deleteCoalData</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="s2">&quot;Error: Missing &#39;id&#39; paraeter&quot;</span><span class="p">,</span> <span class="mi">400</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.get31JiaoCoalgData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">get31JiaoCoalgData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#get31JiaoCoalgData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.get31JiaoCoalgData" title="Permalink to this definition"></a></dt>
+<dd><p>查询1/3焦煤（1/3JM35）数据接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 GET 请求。</p></li>
+<li><p>查询数据库中煤样类型为 ‘1/3JM35’ 的所有记录。</p></li>
+<li><p>返回包含查询结果的 JSON 格式响应。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 GET 请求获取数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含查询结果的 JSON 格式响应，包含以下字段:</dt><dd><ul class="simple">
+<li><p>msg (list): 包含所有煤样类型为 ‘1/3JM35’ 的记录。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 GET 请求查询1/3焦煤数据:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">GET</span> <span class="o">/</span><span class="n">get31JiaoCoal</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;1/3JM35&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal B&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;1/3JM35&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>查询结果为空时，返回的 <cite>msg</cite> 为一个空列表。</p></li>
+<li><p>如果请求方法不是 GET，将返回 405 错误。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getClassifyData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getClassifyData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getClassifyData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getClassifyData" title="Permalink to this definition"></a></dt>
+<dd><p>接收煤数据并将其转化为 CSV 文件进行分类预测。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><p>接收 POST 请求中的煤数据，解析后保存为 CSV 文件。</p>
+<p>调用煤分类预测函数 <cite>coaltypefind</cite> 对每条煤数据进行分类预测。</p>
+<p>返回包含每条数据的 ID、名称及预测类型的结果。</p>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求传递煤数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>JSON: 返回预测结果的 JSON 格式响应，包含以下字段:</p>
+<blockquote>
+<div><p>id (int): 煤数据的唯一标识。</p>
+<p>name (str): 煤数据的名称。</p>
+<p>predicted_type (str): 预测的煤类型或 “判据不足”。</p>
+</div></blockquote>
+</dd>
+<dt>示例:</dt><dd><p>1. 使用 POST 请求传递煤数据进行预测:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getClassifyResult</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_vdaf&quot;</span><span class="p">:</span> <span class="mf">25.3</span><span class="p">,</span>
+        <span class="s2">&quot;coal_drynoash_hdaf&quot;</span><span class="p">:</span> <span class="mf">5.6</span><span class="p">,</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">,</span>
+        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mf">0.9</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;predicted_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Type 1&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>2. 错误响应示例 (当请求方法不是 POST 时):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Invalid</span> <span class="n">request</span> <span class="n">method</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getClassifyResult">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getClassifyResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getClassifyResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getClassifyResult" title="Permalink to this definition"></a></dt>
+<dd><p>接收煤数据并将其转化为 CSV 文件进行分类预测。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><p>接收 POST 请求中的煤数据，解析后保存为 CSV 文件。</p>
+<p>调用煤分类预测函数 <cite>coaltypefind</cite> 对每条煤数据进行分类预测。</p>
+<p>返回包含每条数据的 ID、名称及预测类型的结果。</p>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求传递煤数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>JSON: 返回预测结果的 JSON 格式响应，包含以下字段:</p>
+<blockquote>
+<div><p>id (int): 煤数据的唯一标识。</p>
+<p>name (str): 煤数据的名称。</p>
+<p>predicted_type (str): 预测的煤类型或 “判据不足”。</p>
+</div></blockquote>
+</dd>
+<dt>示例:</dt><dd><p>1. 传递煤数据进行预测:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getClassifyResult</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_vdaf&quot;</span><span class="p">:</span> <span class="mf">25.3</span><span class="p">,</span>
+        <span class="s2">&quot;coal_drynoash_hdaf&quot;</span><span class="p">:</span> <span class="mf">5.6</span><span class="p">,</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">,</span>
+        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mf">0.9</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;predicted_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Type 1&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>2. 请求数据格式错误:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getClassifyResult</span>
+<span class="p">{</span> <span class="n">invalid</span> <span class="n">json</span> <span class="p">}</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid JSON data&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>3. 输入数据缺少必要字段:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getClassifyResult</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Missing key in input data: &#39;coal_vdaf&#39;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getCokeQualityResultAIDecisionTree">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getCokeQualityResultAIDecisionTree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getCokeQualityResultAIDecisionTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getCokeQualityResultAIDecisionTree" title="Permalink to this definition"></a></dt>
+<dd><p>使用决策树模型预测焦炭质量参数（CRI、CSR等）。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 POST 请求，包含煤炭样品数据。</p></li>
+<li><p>数据预处理，包括特征提取和归一化。</p></li>
+<li><p>调用决策树模型分别预测 CRI 和 CSR。</p></li>
+<li><p>计算每个样品的预测误差，并返回预测结果及平均误差。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传煤炭数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含预测结果的 JSON 格式响应，其中每个样品包括以下字段:</dt><dd><ul class="simple">
+<li><p>id (int): 样品的唯一标识。</p></li>
+<li><p>coal_name (str): 样品的名称。</p></li>
+<li><p>predicted_CRI (float): 预测的 CRI 值。</p></li>
+<li><p>predicted_CSR (float): 预测的 CSR 值。</p></li>
+<li><p>real_CRI (float): 实际的 CRI 值（如果存在）。</p></li>
+<li><p>real_CSR (float): 实际的 CSR 值（如果存在）。</p></li>
+<li><p>error_CRI (str): CRI 的预测误差百分比。</p></li>
+<li><p>error_CSR (str): CSR 的预测误差百分比。</p></li>
+<li><p>total_error_CRI (float): 所有样品 CRI 的平均误差。</p></li>
+<li><p>total_error_CSR (float): 所有样品 CSR 的平均误差。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求预测焦炭质量:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getCokeQualityResultAIDecisionTree</span>
+
+<span class="n">数据</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_mad&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+        <span class="s2">&quot;coal_ad&quot;</span><span class="p">:</span> <span class="mf">20.3</span><span class="p">,</span>
+        <span class="s2">&quot;coal_vdaf&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+        <span class="s2">&quot;coal_std&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">,</span>
+        <span class="s2">&quot;coke_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+        <span class="s2">&quot;coke_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CRI&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CSR&quot;</span><span class="p">:</span> <span class="mf">24.8</span><span class="p">,</span>
+            <span class="s2">&quot;real_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+            <span class="s2">&quot;real_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+            <span class="s2">&quot;error_CRI&quot;</span><span class="p">:</span> <span class="s2">&quot;4.17%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_CSR&quot;</span><span class="p">:</span> <span class="s2">&quot;0.80%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;total_error_CRI&quot;</span><span class="p">:</span> <span class="mf">3.50</span><span class="p">,</span>
+            <span class="s2">&quot;total_error_CSR&quot;</span><span class="p">:</span> <span class="mf">1.20</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>输入数据必须包含煤炭样品的所有必要特征。</p></li>
+<li><p>如果数据中有 <cite>None</cite> 值（表示缺失数据），返回包含 <cite>‘Error’</cite> 的 JSON 响应。</p></li>
+<li><p>模型需要预先加载（假定 <cite>decisiontree</cite> 模型已加载）。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getCokeQualityfyeResultAI">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getCokeQualityfyeResultAI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getCokeQualityfyeResultAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getCokeQualityfyeResultAI" title="Permalink to this definition"></a></dt>
+<dd><p>接收煤炭数据并使用 AI 模型预测焦炭的质量参数（M25、M10、CRI、CSR等）</p>
+<p>Paremeters
+无（通过 POST 请求上传煤炭数据）</p>
+<p>Return
+返回一个包含预测结果的 JSON 格式响应，其中每个煤样品的预测结果包括：
+1. 预测的 M25、M10、CRI、CSR 值
+2. 真实的 M25、M10、CRI、CSR 值（如果存在）
+3. 预测误差（如有）
+4. 每个样本的平均误差（全体样本）</p>
+<p>Example
+1. 从请求中读取煤炭数据。
+2. 处理并规范化数据（通过最大最小值标准化）。
+3. 使用预训练的 AI 模型对数据进行预测。
+4. 计算并存储每个煤样品的预测结果和误差。
+5. 返回预测结果，包含每个煤样品的详细信息。</p>
+<p>Notes
+1. 输入数据应包含多个煤样本的物理和化学参数，如煤的含水率、挥发分等。
+2. 模型预测值与实际值的误差（CRI 和 CSR）将计算并返回。
+3. 模型需要事先训练并加载（假定 <cite>model</cite> 已加载）。</p>
+<p>例如返回的 JSON 数据可能如下：
+<code class="docutils literal notranslate"><span class="pre">`json</span>
+<span class="pre">[</span>
+<span class="pre">{</span>
+<span class="pre">&quot;id&quot;:</span> <span class="pre">1,</span>
+<span class="pre">&quot;coal_name&quot;:</span> <span class="pre">&quot;Sample</span> <span class="pre">A&quot;,</span>
+<span class="pre">&quot;M25&quot;:</span> <span class="pre">10.25,</span>
+<span class="pre">&quot;M10&quot;:</span> <span class="pre">5.30,</span>
+<span class="pre">&quot;CRI&quot;:</span> <span class="pre">12.3,</span>
+<span class="pre">&quot;CSR&quot;:</span> <span class="pre">25.1,</span>
+<span class="pre">&quot;real_M25&quot;:</span> <span class="pre">10.0,</span>
+<span class="pre">&quot;real_M10&quot;:</span> <span class="pre">5.0,</span>
+<span class="pre">&quot;real_CRI&quot;:</span> <span class="pre">12.5,</span>
+<span class="pre">&quot;real_CSR&quot;:</span> <span class="pre">25.0,</span>
+<span class="pre">&quot;error_CRI&quot;:</span> <span class="pre">&quot;1.6%&quot;,</span>
+<span class="pre">&quot;error_CSR&quot;:</span> <span class="pre">&quot;0.4%&quot;,</span>
+<span class="pre">&quot;total_error_CRI&quot;:</span> <span class="pre">&quot;1.2&quot;,</span>
+<span class="pre">&quot;total_error_CSR&quot;:</span> <span class="pre">&quot;0.3&quot;</span>
+<span class="pre">},</span>
+<span class="pre">...</span>
+<span class="pre">]</span>
+<span class="pre">`</span></code></p>
+<p>Notes
+如果传入的数据中有 <cite>None</cite> 值（表示缺失数据），将返回一个包含 <cite>‘Error’</cite> 的 JSON 响应。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getCokeQualityfyeResultAIKNN">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getCokeQualityfyeResultAIKNN</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getCokeQualityfyeResultAIKNN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getCokeQualityfyeResultAIKNN" title="Permalink to this definition"></a></dt>
+<dd><p>使用 KNN 模型预测焦炭质量参数（CRI、CSR等）。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 POST 请求，包含煤炭样品数据。</p></li>
+<li><p>数据预处理，包括特征提取和归一化。</p></li>
+<li><p>调用 KNN 模型分别预测 CRI 和 CSR。</p></li>
+<li><p>计算每个样品的预测误差，并返回预测结果及平均误差。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传煤炭数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含预测结果的 JSON 格式响应，其中每个样品包括以下字段:</dt><dd><ul class="simple">
+<li><p>id (int): 样品的唯一标识。</p></li>
+<li><p>coal_name (str): 样品的名称。</p></li>
+<li><p>predicted_CRI (float): 预测的 CRI 值。</p></li>
+<li><p>predicted_CSR (float): 预测的 CSR 值。</p></li>
+<li><p>real_CRI (float): 实际的 CRI 值（如果存在）。</p></li>
+<li><p>real_CSR (float): 实际的 CSR 值（如果存在）。</p></li>
+<li><p>error_CRI (str): CRI 的预测误差百分比。</p></li>
+<li><p>error_CSR (str): CSR 的预测误差百分比。</p></li>
+<li><p>total_error_CRI (float): 所有样品 CRI 的平均误差。</p></li>
+<li><p>total_error_CSR (float): 所有样品 CSR 的平均误差。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求预测焦炭质量:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getCokeQualityfyeResultAIKNN</span>
+
+<span class="n">数据</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_mad&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+        <span class="s2">&quot;coal_ad&quot;</span><span class="p">:</span> <span class="mf">20.3</span><span class="p">,</span>
+        <span class="s2">&quot;coal_vdaf&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+        <span class="s2">&quot;coal_std&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">,</span>
+        <span class="s2">&quot;coke_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+        <span class="s2">&quot;coke_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CRI&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CSR&quot;</span><span class="p">:</span> <span class="mf">24.8</span><span class="p">,</span>
+            <span class="s2">&quot;real_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+            <span class="s2">&quot;real_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+            <span class="s2">&quot;error_CRI&quot;</span><span class="p">:</span> <span class="s2">&quot;4.17%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_CSR&quot;</span><span class="p">:</span> <span class="s2">&quot;0.80%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;total_error_CRI&quot;</span><span class="p">:</span> <span class="mf">3.50</span><span class="p">,</span>
+            <span class="s2">&quot;total_error_CSR&quot;</span><span class="p">:</span> <span class="mf">1.20</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>输入数据必须包含煤炭样品的所有必要特征。</p></li>
+<li><p>如果数据中有 <cite>None</cite> 值（表示缺失数据），返回包含 <cite>‘Error’</cite> 的 JSON 响应。</p></li>
+<li><p>模型需要预先加载（假定 <cite>KNN</cite> 模型已加载）。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getCokeQualityfyeResultAILinear">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getCokeQualityfyeResultAILinear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getCokeQualityfyeResultAILinear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getCokeQualityfyeResultAILinear" title="Permalink to this definition"></a></dt>
+<dd><p>接收煤炭数据并使用线性回归模型预测焦炭的质量参数（CRI、CSR等）。</p>
+<p>Paremeters
+无（通过 POST 请求上传煤炭数据）</p>
+<p>Return
+返回一个包含预测结果的 JSON 格式响应，其中每个煤样品的预测结果包括：
+- 预测的CRI和CSR值
+- 真实的CRI和CSR值（如果存在）
+- 预测误差（如有）
+- 每个样本的平均误差（全体样本）</p>
+<p>Example
+1. 从请求中读取煤炭数据。
+2. 处理并规范化数据（通过最大最小值标准化）。
+3. 使用线性回归模型对数据进行预测。
+4. 计算并存储每个煤样品的预测结果和误差。
+5. 返回预测结果，包含每个煤样品的详细信息。</p>
+<p>Notes
+如果传入的数据中有 <cite>None</cite> 值（表示缺失数据），将返回一个包含 <cite>‘Error’</cite> 的 JSON 响应。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getCokeQualityfyeResultAIRF">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getCokeQualityfyeResultAIRF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getCokeQualityfyeResultAIRF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getCokeQualityfyeResultAIRF" title="Permalink to this definition"></a></dt>
+<dd><p>使用随机森林（RF）模型预测焦炭质量参数（CRI、CSR等）。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 POST 请求，包含煤炭样品数据。</p></li>
+<li><p>数据预处理，包括特征提取和归一化。</p></li>
+<li><p>调用 RF 模型分别预测 CRI 和 CSR。</p></li>
+<li><p>计算每个样品的预测误差，并返回预测结果及平均误差。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传煤炭数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含预测结果的 JSON 格式响应，其中每个样品包括以下字段:</dt><dd><ul class="simple">
+<li><p>id (int): 样品的唯一标识。</p></li>
+<li><p>coal_name (str): 样品的名称。</p></li>
+<li><p>predicted_CRI (float): 预测的 CRI 值。</p></li>
+<li><p>predicted_CSR (float): 预测的 CSR 值。</p></li>
+<li><p>real_CRI (float): 实际的 CRI 值（如果存在）。</p></li>
+<li><p>real_CSR (float): 实际的 CSR 值（如果存在）。</p></li>
+<li><p>error_CRI (str): CRI 的预测误差百分比。</p></li>
+<li><p>error_CSR (str): CSR 的预测误差百分比。</p></li>
+<li><p>total_error_CRI (float): 所有样品 CRI 的平均误差。</p></li>
+<li><p>total_error_CSR (float): 所有样品 CSR 的平均误差。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求预测焦炭质量:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getCokeQualityfyeResultAIRF</span>
+
+<span class="n">数据</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_mad&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+        <span class="s2">&quot;coal_ad&quot;</span><span class="p">:</span> <span class="mf">20.3</span><span class="p">,</span>
+        <span class="s2">&quot;coal_vdaf&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+        <span class="s2">&quot;coal_std&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">,</span>
+        <span class="s2">&quot;coke_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+        <span class="s2">&quot;coke_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CRI&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CSR&quot;</span><span class="p">:</span> <span class="mf">24.8</span><span class="p">,</span>
+            <span class="s2">&quot;real_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+            <span class="s2">&quot;real_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+            <span class="s2">&quot;error_CRI&quot;</span><span class="p">:</span> <span class="s2">&quot;4.17%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_CSR&quot;</span><span class="p">:</span> <span class="s2">&quot;0.80%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;total_error_CRI&quot;</span><span class="p">:</span> <span class="mf">3.50</span><span class="p">,</span>
+            <span class="s2">&quot;total_error_CSR&quot;</span><span class="p">:</span> <span class="mf">1.20</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>输入数据必须包含煤炭样品的所有必要特征。</p></li>
+<li><p>如果数据中有 <cite>None</cite> 值（表示缺失数据），返回包含 <cite>‘Error’</cite> 的 JSON 响应。</p></li>
+<li><p>模型需要预先加载（假定 <cite>RF</cite> 模型已加载）。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getCokeQualityfyeResultAISVR">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getCokeQualityfyeResultAISVR</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getCokeQualityfyeResultAISVR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getCokeQualityfyeResultAISVR" title="Permalink to this definition"></a></dt>
+<dd><p>使用支持向量回归（SVR）模型预测焦炭质量参数（CRI、CSR等）。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 POST 请求，包含煤炭样品数据。</p></li>
+<li><p>数据预处理，包括特征提取和归一化。</p></li>
+<li><p>调用 SVR 模型分别预测 CRI 和 CSR。</p></li>
+<li><p>计算每个样品的预测误差，并返回预测结果及平均误差。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传煤炭数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含预测结果的 JSON 格式响应，其中每个样品包括以下字段:</dt><dd><ul class="simple">
+<li><p>id (int): 样品的唯一标识。</p></li>
+<li><p>coal_name (str): 样品的名称。</p></li>
+<li><p>predicted_CRI (float): 预测的 CRI 值。</p></li>
+<li><p>predicted_CSR (float): 预测的 CSR 值。</p></li>
+<li><p>real_CRI (float): 实际的 CRI 值（如果存在）。</p></li>
+<li><p>real_CSR (float): 实际的 CSR 值（如果存在）。</p></li>
+<li><p>error_CRI (str): CRI 的预测误差百分比。</p></li>
+<li><p>error_CSR (str): CSR 的预测误差百分比。</p></li>
+<li><p>total_error_CRI (float): 所有样品 CRI 的平均误差。</p></li>
+<li><p>total_error_CSR (float): 所有样品 CSR 的平均误差。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求预测焦炭质量:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getCokeQualityfyeResultAISVR</span>
+
+<span class="n">数据</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_mad&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+        <span class="s2">&quot;coal_ad&quot;</span><span class="p">:</span> <span class="mf">20.3</span><span class="p">,</span>
+        <span class="s2">&quot;coal_vdaf&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+        <span class="s2">&quot;coal_std&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">,</span>
+        <span class="s2">&quot;coke_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+        <span class="s2">&quot;coke_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CRI&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CSR&quot;</span><span class="p">:</span> <span class="mf">24.8</span><span class="p">,</span>
+            <span class="s2">&quot;real_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+            <span class="s2">&quot;real_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+            <span class="s2">&quot;error_CRI&quot;</span><span class="p">:</span> <span class="s2">&quot;4.17%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_CSR&quot;</span><span class="p">:</span> <span class="s2">&quot;0.80%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;total_error_CRI&quot;</span><span class="p">:</span> <span class="mf">3.50</span><span class="p">,</span>
+            <span class="s2">&quot;total_error_CSR&quot;</span><span class="p">:</span> <span class="mf">1.20</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>输入数据必须包含煤炭样品的所有必要特征。</p></li>
+<li><p>如果数据中有 <cite>None</cite> 值（表示缺失数据），返回包含 <cite>‘Error’</cite> 的 JSON 响应。</p></li>
+<li><p>模型需要预先加载（假定 <cite>SVR_CRI</cite> 和 <cite>SVR_CSR</cite> 已加载）。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getCokeQualityfyeResultAIXGBoost">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getCokeQualityfyeResultAIXGBoost</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getCokeQualityfyeResultAIXGBoost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getCokeQualityfyeResultAIXGBoost" title="Permalink to this definition"></a></dt>
+<dd><p>使用 AICNN 模型预测焦炭质量参数（CRI、CSR等）。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 POST 请求，包含煤炭样品数据。</p></li>
+<li><p>数据预处理，包括格式化和标准化。</p></li>
+<li><p>调用 AICNN 模型对样品数据进行预测。</p></li>
+<li><p>对预测结果加入高斯噪声以模拟误差。</p></li>
+<li><p>返回预测结果及误差分析。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传煤炭数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含预测结果的 JSON 格式响应，其中每个样品包括以下字段:</dt><dd><ul class="simple">
+<li><p>id (int): 样品的唯一标识。</p></li>
+<li><p>coal_name (str): 样品的名称。</p></li>
+<li><p>predicted_CRI (float): 预测的 CRI 值。</p></li>
+<li><p>predicted_CSR (float): 预测的 CSR 值。</p></li>
+<li><p>real_CRI (float): 实际的 CRI 值（如果存在）。</p></li>
+<li><p>real_CSR (float): 实际的 CSR 值（如果存在）。</p></li>
+<li><p>error_CRI (str): CRI 的预测误差百分比。</p></li>
+<li><p>error_CSR (str): CSR 的预测误差百分比。</p></li>
+<li><p>average_error_CRI (float): 所有样品 CRI 的平均误差。</p></li>
+<li><p>average_error_CSR (float): 所有样品 CSR 的平均误差。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求预测焦炭质量:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getCokeQualityfyeResultCNN</span>
+
+<span class="n">数据</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample B&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CRI&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CSR&quot;</span><span class="p">:</span> <span class="mf">25.3</span><span class="p">,</span>
+            <span class="s2">&quot;real_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+            <span class="s2">&quot;real_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+            <span class="s2">&quot;error_CRI&quot;</span><span class="p">:</span> <span class="s2">&quot;4.2%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_CSR&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;average_error_CRI&quot;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span>
+            <span class="s2">&quot;average_error_CSR&quot;</span><span class="p">:</span> <span class="mf">2.0</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>输入数据必须包含每个样品的煤炭特性字段。</p></li>
+<li><p>如果数据中有 <cite>None</cite> 值（表示缺失数据），返回包含 <cite>‘Error’</cite> 的 JSON 响应。</p></li>
+<li><p>模型预测结果将加入高斯噪声模拟误差。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getCokeQualityfyeResultCNN">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getCokeQualityfyeResultCNN</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getCokeQualityfyeResultCNN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getCokeQualityfyeResultCNN" title="Permalink to this definition"></a></dt>
+<dd><p>使用 AICNN 模型预测焦炭质量参数（CRI、CSR等）。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 POST 请求，包含煤炭样品数据。</p></li>
+<li><p>数据预处理，包括格式化和标准化。</p></li>
+<li><p>调用 AICNN 模型对样品数据进行预测。</p></li>
+<li><p>对预测结果加入高斯噪声以模拟误差。</p></li>
+<li><p>返回预测结果及误差分析。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传煤炭数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含预测结果的 JSON 格式响应，其中每个样品包括以下字段:</dt><dd><ul class="simple">
+<li><p>id (int): 样品的唯一标识。</p></li>
+<li><p>coal_name (str): 样品的名称。</p></li>
+<li><p>predicted_CRI (float): 预测的 CRI 值。</p></li>
+<li><p>predicted_CSR (float): 预测的 CSR 值。</p></li>
+<li><p>real_CRI (float): 实际的 CRI 值（如果存在）。</p></li>
+<li><p>real_CSR (float): 实际的 CSR 值（如果存在）。</p></li>
+<li><p>error_CRI (str): CRI 的预测误差百分比。</p></li>
+<li><p>error_CSR (str): CSR 的预测误差百分比。</p></li>
+<li><p>average_error_CRI (float): 所有样品 CRI 的平均误差。</p></li>
+<li><p>average_error_CSR (float): 所有样品 CSR 的平均误差。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求预测焦炭质量:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">getCokeQualityfyeResultCNN</span>
+<span class="n">数据</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample B&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coal_properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CRI&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
+            <span class="s2">&quot;predicted_CSR&quot;</span><span class="p">:</span> <span class="mf">25.3</span><span class="p">,</span>
+            <span class="s2">&quot;real_CRI&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+            <span class="s2">&quot;real_CSR&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+            <span class="s2">&quot;error_CRI&quot;</span><span class="p">:</span> <span class="s2">&quot;4.2%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_CSR&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2%&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;average_error_CRI&quot;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span>
+            <span class="s2">&quot;average_error_CSR&quot;</span><span class="p">:</span> <span class="mf">2.0</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>输入数据必须包含每个样品的煤炭特性字段。</p></li>
+<li><p>如果数据中有 <cite>None</cite> 值（表示缺失数据），返回包含 <cite>‘Error’</cite> 的 JSON 响应。</p></li>
+<li><p>模型预测结果将加入高斯噪声模拟误差。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getData" title="Permalink to this definition"></a></dt>
+<dd><p>获取煤数据接口处理函数。</p>
+<p>根据查询参数返回煤数据：
+- 对于 GET 请求，根据查询参数 <cite>query</cite> 过滤煤种数据。
+- 如果 <cite>query</cite> 为空或未提供，则返回所有煤数据。</p>
+<dl>
+<dt>参数:</dt><dd><p>无（通过 HTTP 请求传递查询参数）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含煤数据查询结果的 JSON 格式响应，包含以下字段:</dt><dd><p>msg (str): 煤数据查询结果，由 <cite>CoalDataGeneration.response</cite> 方法格式化。</p>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><ol class="arabic">
+<li><dl>
+<dt>无查询参数时返回所有煤数据:</dt><dd><dl class="simple">
+<dt>::</dt><dd><p>GET /coalData</p>
+</dd>
+</dl>
+<p>返回:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthracite&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>通过查询参数过滤煤种数据:</dt><dd><dl class="simple">
+<dt>::</dt><dd><p>GET /coalData?query=Anthracite</p>
+</dd>
+</dl>
+<p>返回:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthracite&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getDetailedData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getDetailedData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getDetailedData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getDetailedData" title="Permalink to this definition"></a></dt>
+<dd><p>根据煤数据的 ID 查询煤的详细信息接口。</p>
+<p>处理逻辑:</p>
+<blockquote>
+<div><p>对于 GET 请求，通过查询参数 <cite>id</cite> 获取煤数据的 ID。</p>
+<p>查询数据库，返回对应的煤数据详细信息。</p>
+</div></blockquote>
+<dl>
+<dt>参数:</dt><dd><p>无（通过 HTTP 请求传递煤数据 ID）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含煤的详细信息的 JSON 格式响应，包含以下字段:</dt><dd><p>msg (str): 煤的详细信息，由 <cite>CoalDataGeneration.response</cite> 方法格式化。</p>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>1. 查询煤的详细信息:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /coalDetailedData?id=5
+</pre></div>
+</div>
+<p>返回:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthracite&quot;</span><span class="p">,</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>2. 缺少 <cite>id</cite> 参数时的错误响应:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">coalDetailedData</span>
+</pre></div>
+</div>
+<p>返回:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Error: Missing &#39;id&#39; parameter&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getFeiCoalgData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getFeiCoalgData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getFeiCoalgData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getFeiCoalgData" title="Permalink to this definition"></a></dt>
+<dd><p>查询肥煤（FM36）数据接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 GET 请求。</p></li>
+<li><p>查询数据库中煤样类型为 ‘FM36’ 的所有记录。</p></li>
+<li><p>返回包含查询结果的 JSON 格式响应。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 GET 请求获取数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含查询结果的 JSON 格式响应，包含以下字段:</dt><dd><ul class="simple">
+<li><p>msg (list): 包含所有煤样类型为 ‘FM36’ 的记录。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 GET 请求查询肥煤数据:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">GET</span> <span class="o">/</span><span class="n">getFeiCoal</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;FM36&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal B&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;FM36&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>查询结果为空时，返回的 <cite>msg</cite> 为一个空列表。</p></li>
+<li><p>如果请求方法不是 GET，将返回 405 错误。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getJiaoCoalData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getJiaoCoalData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getJiaoCoalData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getJiaoCoalData" title="Permalink to this definition"></a></dt>
+<dd><p>查询焦煤（JM25 和 JM24）数据接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 GET 请求。</p></li>
+<li><p>分别查询数据库中煤样类型为 ‘JM25’ 和 ‘JM24’ 的所有记录。</p></li>
+<li><p>合并查询结果并返回包含所有数据的 JSON 格式响应。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 GET 请求获取数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含查询结果的 JSON 格式响应，包含以下字段:</dt><dd><ul class="simple">
+<li><p>msg (list): 包含所有煤样类型为 ‘JM25’ 和 ‘JM24’ 的记录。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 GET 请求查询焦煤数据:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">GET</span> <span class="o">/</span><span class="n">getJiaoCoal</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;JM25&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal B&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;JM24&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>查询结果为空时，返回的 <cite>msg</cite> 为一个空列表。</p></li>
+<li><p>如果请求方法不是 GET，将返回 405 错误。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getQiCoalData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getQiCoalData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getQiCoalData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getQiCoalData" title="Permalink to this definition"></a></dt>
+<dd><p>查询气煤（QM45）数据接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 GET 请求。</p></li>
+<li><p>查询数据库中煤样类型为 ‘QM45’ 的所有记录。</p></li>
+<li><p>返回包含查询结果的 JSON 格式响应。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 GET 请求获取数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含查询结果的 JSON 格式响应，包含以下字段:</dt><dd><ul class="simple">
+<li><p>msg (list): 包含所有煤样类型为 ‘QM45’ 的记录。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 GET 请求查询气煤数据:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">GET</span> <span class="o">/</span><span class="n">getQiCoal</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;QM45&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal B&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;QM45&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>查询结果为空时，返回的 <cite>msg</cite> 为一个空列表。</p></li>
+<li><p>如果请求方法不是 GET，将返回 405 错误。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getQiFeiCoalData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getQiFeiCoalData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getQiFeiCoalData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getQiFeiCoalData" title="Permalink to this definition"></a></dt>
+<dd><p>查询气肥煤（QF46）数据接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 GET 请求。</p></li>
+<li><p>查询数据库中煤样类型为 ‘QF46’ 的所有记录。</p></li>
+<li><p>返回包含查询结果的 JSON 格式响应。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 GET 请求获取数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含查询结果的 JSON 格式响应，包含以下字段:</dt><dd><ul class="simple">
+<li><p>msg (list): 包含所有煤样类型为 ‘QF46’ 的记录。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 GET 请求查询气肥煤数据:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">GET</span> <span class="o">/</span><span class="n">getQiFeiCoal</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;QF46&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal B&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;QF46&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>查询结果为空时，返回的 <cite>msg</cite> 为一个空列表。</p></li>
+<li><p>如果请求方法不是 GET，将返回 405 错误。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.getShouCoalData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">getShouCoalData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#getShouCoalData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.getShouCoalData" title="Permalink to this definition"></a></dt>
+<dd><p>查询瘦煤（SM）数据接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 GET 请求。</p></li>
+<li><p>查询数据库中煤样类型为 ‘SM’ 的所有记录。</p></li>
+<li><p>如果查询结果为空，返回 404 错误。</p></li>
+<li><p>返回包含查询结果的 JSON 格式响应。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 GET 请求获取数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>JSON: 返回包含查询结果的 JSON 格式响应，包含以下字段:</dt><dd><ul class="simple">
+<li><p>msg (list): 包含所有煤样类型为 ‘SM’ 的记录。</p></li>
+</ul>
+</dd>
+<dt>如果未找到数据:</dt><dd><ul class="simple">
+<li><p>error (str): 错误信息。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>使用 GET 请求查询瘦煤数据:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">GET</span> <span class="o">/</span><span class="n">getShouCoal</span>
+
+<span class="n">成功返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;coal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;SM&quot;</span><span class="p">,</span>
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">数据为空时返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;No data found for &#39;SM&#39;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>查询结果为空时返回 404 错误。</p></li>
+<li><p>如果请求方法不是 GET，将返回 405 错误。</p></li>
+<li><p>捕获所有异常并返回 500 错误。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.login">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.login" title="Permalink to this definition"></a></dt>
+<dd><p>登录接口处理函数。</p>
+<dl>
+<dt>处理登录请求：</dt><dd><ul class="simple">
+<li><p>对于 POST 请求，验证用户提供的用户名和密码。</p></li>
+<li><p>对于 GET 请求，返回提示用户发送 POST 请求进行登录。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 HTTP 请求传递数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>对于 POST 请求:</dt><dd><dl class="simple">
+<dt>JSON: 返回登录验证结果，包含以下字段:</dt><dd><p>message (str): 表示登录结果，”success1” 表示成功，”fail” 表示失败。</p>
+</dd>
+</dl>
+</dd>
+<dt>对于 GET 请求:</dt><dd><p>tuple: 返回包含提示信息字符串和 HTTP 状态码的元组。</p>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>1. POST 请求示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">login</span>
+<span class="p">{</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;ustl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;ustl777888&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>返回:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;success1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>2. GET 请求示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">login</span>
+</pre></div>
+</div>
+<p>返回:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Please send a POST request with login credentials.&quot;</span><span class="p">,</span> <span class="mi">200</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.main">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.main" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.predictBestRatio">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">predictBestRatio</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/login.html#predictBestRatio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.predictBestRatio" title="Permalink to this definition"></a></dt>
+<dd><p>预测最优配煤比。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 POST 请求，包含煤样数据（如煤价、煤种特性等）。</p></li>
+<li><p>使用差分进化算法（Differential Evolution）进行优化。</p></li>
+<li><p>优化目标是满足给定的质量要求（如 CRI、CSR、M10、M25），同时降低成本。</p></li>
+<li><p>返回优化结果，包括最优配煤比和最低成本价格。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传煤样数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>JSON: 返回包含最优配煤比和最低成本价格的 JSON 格式响应:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;best_ratio&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span>
+    <span class="s2">&quot;lowest_cost&quot;</span><span class="p">:</span> <span class="mf">1200.0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>如果出现错误:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Failed to predict optimal coal ratio.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求进行最优配煤比预测:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">predictBestRatio</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">120.0</span><span class="p">,</span>
+        <span class="s2">&quot;CRI&quot;</span><span class="p">:</span> <span class="mf">10.2</span><span class="p">,</span>
+        <span class="s2">&quot;CSR&quot;</span><span class="p">:</span> <span class="mf">25.4</span><span class="p">,</span>
+        <span class="s2">&quot;M10&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+        <span class="s2">&quot;M25&quot;</span><span class="p">:</span> <span class="mf">12.5</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;coal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Coal B&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">110.0</span><span class="p">,</span>
+        <span class="s2">&quot;CRI&quot;</span><span class="p">:</span> <span class="mf">11.0</span><span class="p">,</span>
+        <span class="s2">&quot;CSR&quot;</span><span class="p">:</span> <span class="mf">26.0</span><span class="p">,</span>
+        <span class="s2">&quot;M10&quot;</span><span class="p">:</span> <span class="mf">4.8</span><span class="p">,</span>
+        <span class="s2">&quot;M25&quot;</span><span class="p">:</span> <span class="mf">12.0</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;best_ratio&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+    <span class="s2">&quot;lowest_cost&quot;</span><span class="p">:</span> <span class="mf">1150.0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>输入数据应包括每种煤的价格和质量特性（CRI、CSR、M10、M25 等）。</p></li>
+<li><p>输入数据的比例将被优化，确保总和为 1。</p></li>
+<li><p>如果算法无法收敛或数据格式有误，返回错误响应。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.predictBlendCoal">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">predictBlendCoal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#predictBlendCoal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.predictBlendCoal" title="Permalink to this definition"></a></dt>
+<dd><p>该路径根据输入的煤样数据和比例预测混合煤的质量特征。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收一个包含煤种信息和比例的列表。</p></li>
+<li><p>对每个煤种的特征进行加权计算，得出混合煤的综合特征。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>prepared_data (list of dict): 包含多个煤种信息的列表，每个煤种信息包含以下字段</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>coalRatio (float): 煤种的比例，范围为 0-100。
+
+coal_mad (float): 煤种的绝对湿度（MAD）。
+
+coal_ad (float): 煤种的空气干燥（AD）。
+
+coal_vdaf (float): 煤种的挥发分（VDAF）。
+
+coal_std (float): 煤种的标准化分（STD）。
+
+G (float): 煤种的G值（可自定义）。
+
+X (float): 煤种的X值（可自定义）。
+
+Y (float): 煤种的Y值（可自定义）。
+</pre></div>
+</div>
+</dd>
+<dt>返回值:</dt><dd><p>list: 返回一个包含混合煤质量特征的字典。每个字典包含</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>blendCoal_mad (float): 混合煤的绝对湿度。
+
+blendCoal_ad (float): 混合煤的空气干燥。
+
+blendCoal_vdaf (float): 混合煤的挥发分。
+
+blendCoal_std (float): 混合煤的标准化分。
+
+blendCoal_G (float): 混合煤的G值。
+
+blendCoal_X (float): 混合煤的X值。
+
+blendCoal_Y (float): 混合煤的Y值。
+</pre></div>
+</div>
+</dd>
+<dt>示例:</dt><dd><p>输入的煤样数据如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;coalRatio&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+        <span class="s2">&quot;coal_mad&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+        <span class="s2">&quot;coal_ad&quot;</span><span class="p">:</span> <span class="mf">20.3</span><span class="p">,</span>
+        <span class="s2">&quot;coal_vdaf&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
+        <span class="s2">&quot;coal_std&quot;</span><span class="p">:</span> <span class="mf">18.4</span><span class="p">,</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mf">3.4</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;coalRatio&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+        <span class="s2">&quot;coal_mad&quot;</span><span class="p">:</span> <span class="mf">11.2</span><span class="p">,</span>
+        <span class="s2">&quot;coal_ad&quot;</span><span class="p">:</span> <span class="mf">21.5</span><span class="p">,</span>
+        <span class="s2">&quot;coal_vdaf&quot;</span><span class="p">:</span> <span class="mf">26.3</span><span class="p">,</span>
+        <span class="s2">&quot;coal_std&quot;</span><span class="p">:</span> <span class="mf">19.1</span><span class="p">,</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+        <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mf">3.5</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>返回的混合煤质量特征将是：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;blendCoal_mad&quot;</span><span class="p">:</span> <span class="mf">10.9</span><span class="p">,</span>
+        <span class="s2">&quot;blendCoal_ad&quot;</span><span class="p">:</span> <span class="mf">20.9</span><span class="p">,</span>
+        <span class="s2">&quot;blendCoal_vdaf&quot;</span><span class="p">:</span> <span class="mf">25.6</span><span class="p">,</span>
+        <span class="s2">&quot;blendCoal_std&quot;</span><span class="p">:</span> <span class="mf">18.8</span><span class="p">,</span>
+        <span class="s2">&quot;blendCoal_G&quot;</span><span class="p">:</span> <span class="mf">0.57</span><span class="p">,</span>
+        <span class="s2">&quot;blendCoal_X&quot;</span><span class="p">:</span> <span class="mf">1.24</span><span class="p">,</span>
+        <span class="s2">&quot;blendCoal_Y&quot;</span><span class="p">:</span> <span class="mf">3.43</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意:</dt><dd><ul class="simple">
+<li><p>确保输入的煤种比例总和为100%。</p></li>
+<li><p>返回的结果会根据比例进行加权计算。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.setup_seed">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">setup_seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/login.html#setup_seed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.setup_seed" title="Permalink to this definition"></a></dt>
+<dd><p>设置随机种子，以确保结果的可复现性。
+通过设置 NumPy 和 TensorFlow 的随机种子，确保每次运行的结果一致。</p>
+<dl>
+<dt>参数:</dt><dd><p>seed (int): 用于初始化随机数生成器的种子值。</p>
+</dd>
+<dt>返回值:</dt><dd><p>None: 本函数没有返回值，仅修改全局状态以设置随机种子。</p>
+</dd>
+<dt>示例:</dt><dd><p>设置随机种子为 42:</p>
+<dl class="simple">
+<dt>::</dt><dd><p>setup_seed(42)</p>
+</dd>
+</dl>
+</dd>
+<dt>注意:</dt><dd><ol class="arabic simple">
+<li><p>调用 <cite>np.random.seed(seed)</cite> 为 NumPy 设置随机种子。</p></li>
+<li><p>调用 <cite>tf.random.set_seed(seed)</cite> 为 TensorFlow 设置 CPU 随机种子。</p></li>
+<li><p>通过设置环境变量 <cite>os.environ[‘TF_DETERMINISTIC_OPS’] = ‘1’</cite> 为 TensorFlow 的 GPU 操作启用确定性行为。
+请确保安装了 <cite>tensorflow-determinism</cite> 库以支持 GPU 的完全确定性操作。</p></li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.uploadClassifyResult">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">uploadClassifyResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#uploadClassifyResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.uploadClassifyResult" title="Permalink to this definition"></a></dt>
+<dd><p>将分类预测结果上传到数据库，并更新对应煤数据的类型。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><p>检查全局变量 <cite>upload_classify</cite> 是否包含分类结果。</p>
+<p>遍历 <cite>upload_classify</cite> 中的每条预测结果。</p>
+<p>根据预测结果的 <cite>id</cite> 更新数据库中对应记录的 <cite>coal_type</cite> 字段。</p>
+<p>提交更新到数据库。</p>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传分类预测结果）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>str: 返回上传结果的响应字符串:</p>
+<blockquote>
+<div><p>“upload successfully”: 表示分类结果已成功上传。</p>
+</div></blockquote>
+</dd>
+<dt>示例:</dt><dd><p>上传分类预测结果至数据库:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>全局变量 `upload_classify` 包含以下数据:
+[
+    {
+        &quot;id&quot;: 1,
+        &quot;predicted_type&quot;: &quot;Type A&quot;
+    },
+    {
+        &quot;id&quot;: 2,
+        &quot;predicted_type&quot;: &quot;Type B&quot;
+    }
+]
+
+请求:
+POST /uploadClassifyResult
+
+返回:
+&quot;upload successfully&quot;
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ol class="arabic">
+<li><p><cite>upload_classify</cite> 必须是一个已存储分类结果的全局变量，数据格式应包含以下字段:</p>
+<blockquote>
+<div><p>id (int): 煤数据的唯一标识。</p>
+<p>predicted_type (str): 分类预测的煤类型。</p>
+</div></blockquote>
+</li>
+<li><p>使用 SQLAlchemy 的 <cite>update()</cite> 方法批量更新数据库中的记录。</p></li>
+<li><p>必须确保数据库会话 (<cite>db.session</cite>) 的提交成功。</p></li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.uploadCoalData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">uploadCoalData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/login.html#uploadCoalData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.uploadCoalData" title="Permalink to this definition"></a></dt>
+<dd><p>上传原煤数据并存储到数据库。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 POST 请求，上传煤样数据文件。</p></li>
+<li><p>读取上传的 Excel 文件内容，将数据逐条解析为标准化格式。</p></li>
+<li><p>根据模板字段填充每条煤样数据，数据中缺失值用 None 替代。</p></li>
+<li><p>将解析后的煤样数据存储到数据库。</p></li>
+<li><p>返回上传成功的消息。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传 Excel 文件）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>str: 返回 “upload successfully” 表示上传成功。
+如果发生异常，将返回错误消息。</p>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求上传煤样数据:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">UploadCoalData</span>
+<span class="n">上传文件</span><span class="p">:</span> <span class="n">upload_coal</span><span class="o">.</span><span class="n">xlsx</span>
+
+<span class="n">Excel</span> <span class="n">文件内容示例</span><span class="p">:</span>
+<span class="o">+------------+-------+--------+----------+----------+----------+----------+-----+-----+</span>
+<span class="o">|</span> <span class="n">煤样名称</span>     <span class="o">|</span> <span class="n">煤种</span>  <span class="o">|</span> <span class="n">价格</span><span class="p">(</span><span class="n">吨</span><span class="p">)</span> <span class="o">|</span> <span class="n">煤样水分</span><span class="p">(</span><span class="n">Mad</span><span class="p">)</span> <span class="o">|</span> <span class="n">煤样灰分</span><span class="p">(</span><span class="n">Ad</span><span class="p">)</span> <span class="o">|</span> <span class="n">煤样挥发分</span><span class="p">(</span><span class="n">Vdaf</span><span class="p">)</span> <span class="o">|</span> <span class="n">氢</span><span class="p">(</span><span class="n">Hdaf</span><span class="p">)</span> <span class="o">|</span> <span class="o">...</span> <span class="o">|</span>
+<span class="o">+------------+-------+--------+----------+----------+----------+----------+-----+-----+</span>
+<span class="o">|</span> <span class="n">Coal</span> <span class="n">Sample</span> <span class="n">A</span> <span class="o">|</span> <span class="n">JM24</span>  <span class="o">|</span> <span class="mi">1000</span>   <span class="o">|</span> <span class="mf">10.5</span>     <span class="o">|</span> <span class="mf">15.2</span>     <span class="o">|</span> <span class="mf">25.3</span>     <span class="o">|</span> <span class="mf">1.5</span>      <span class="o">|</span> <span class="o">...</span> <span class="o">|</span> <span class="o">...</span> <span class="o">|</span>
+<span class="o">+------------+-------+--------+----------+----------+----------+----------+-----+-----+</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="s2">&quot;upload successfully&quot;</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>上传文件必须为符合模板的 Excel 文件。</p></li>
+<li><p>数据中的 NaN 值将替换为 None。</p></li>
+<li><p>数据存储前，将字段值与模板匹配。</p></li>
+<li><p>数据表中的字段包括煤种类型、价格、挥发分等。</p></li>
+</ul>
+</dd>
+<dt>错误处理:</dt><dd><ul class="simple">
+<li><p>如果文件上传失败或解析出错，将返回详细的错误信息。</p></li>
+<li><p>如果数据库存储失败，将回滚事务，确保数据一致性。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.uploadQualityResult">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">uploadQualityResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login.html#uploadQualityResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.uploadQualityResult" title="Permalink to this definition"></a></dt>
+<dd><p>将预测结果上传到数据库（针对 AI 算法预测的 CRI 和 CSR 值）。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>检查全局变量 <cite>upload_quality</cite> 是否包含预测结果。</p></li>
+<li><p>遍历每条预测结果，根据 <cite>id</cite> 查询数据库中的对应记录。</p></li>
+<li><p>更新数据库记录的 <cite>predicted_CRI</cite> 和 <cite>predicted_CSR</cite> 字段。</p></li>
+<li><p>提交所有更新到数据库。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传预测结果）。</p>
+</dd>
+<dt>返回值:</dt><dd><dl class="simple">
+<dt>str: 返回上传结果的响应字符串:</dt><dd><ul class="simple">
+<li><p>“upload successfully”: 表示所有预测结果已成功上传。</p></li>
+<li><p>错误响应包含失败的具体原因。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>示例:</dt><dd><p>上传预测结果至数据库:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>假设全局变量 `upload_quality` 包含以下数据:
+[
+    {
+        &quot;id&quot;: 1,
+        &quot;CRI&quot;: 12.5,
+        &quot;CSR&quot;: 25.3
+    },
+    {
+        &quot;id&quot;: 2,
+        &quot;CRI&quot;: 15.2,
+        &quot;CSR&quot;: 30.1
+    }
+]
+
+请求:
+POST /uploadQualityResult
+
+返回:
+&quot;upload successfully&quot;
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p><cite>upload_quality</cite> 必须是一个包含预测结果的全局变量。</p></li>
+<li><dl class="simple">
+<dt>每条数据应包含以下字段:</dt><dd><ul>
+<li><p>id (int): 样本的唯一标识。</p></li>
+<li><p>CRI (float): 预测的 CRI 值。</p></li>
+<li><p>CSR (float): 预测的 CSR 值。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>如果事务提交失败，将回滚所有更改并返回错误信息。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.uploadUserClassifyResult">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">uploadUserClassifyResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/login.html#uploadUserClassifyResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.uploadUserClassifyResult" title="Permalink to this definition"></a></dt>
+<dd><p>用户上传煤样分类结果接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>检查全局变量 <cite>upload_classify_user</cite> 是否包含分类结果。</p></li>
+<li><p>从上传的 Excel 文件中读取煤样数据。</p></li>
+<li><p>合并用户分类结果和煤样数据，根据模板填充每条记录。</p></li>
+<li><p>数据格式化后插入到数据库。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传数据）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>str: 返回 “upload successfully” 表示上传成功。
+如果发生异常，返回错误消息。</p>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求上传煤样分类结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">uploadUserClassifyResult</span>
+<span class="n">文件路径</span><span class="p">:</span> <span class="o">../</span><span class="n">src</span><span class="o">/</span><span class="n">assets</span><span class="o">/</span><span class="n">Upload_files</span><span class="o">/</span><span class="n">upload_coal</span><span class="o">.</span><span class="n">xlsx</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="s2">&quot;upload successfully&quot;</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p><cite>upload_classify_user</cite> 必须包含每条煤样的分类结果。</p></li>
+<li><p>上传的 Excel 文件路径为 <cite>../src/assets/Upload_files/upload_coal.xlsx</cite>。</p></li>
+<li><p>数据中的 NaN 值将替换为 None。</p></li>
+<li><p>确保数据库事务成功提交。</p></li>
+</ul>
+</dd>
+<dt>错误处理:</dt><dd><ul class="simple">
+<li><p>如果文件读取或数据库操作失败，将返回详细的错误信息。</p></li>
+<li><p>未找到分类结果时返回错误提示。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="login.uploadUserCoalData">
+<span class="sig-prename descclassname"><span class="pre">login.</span></span><span class="sig-name descname"><span class="pre">uploadUserCoalData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/login.html#uploadUserCoalData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.uploadUserCoalData" title="Permalink to this definition"></a></dt>
+<dd><p>上传用户自选煤数据接口。</p>
+<dl>
+<dt>处理逻辑:</dt><dd><ul class="simple">
+<li><p>接收 POST 请求上传用户自选的煤数据文件。</p></li>
+<li><p>将上传的文件保存到指定路径，供后续分类或处理使用。</p></li>
+</ul>
+</dd>
+<dt>参数:</dt><dd><p>无（通过 POST 请求上传 Excel 文件）。</p>
+</dd>
+<dt>返回值:</dt><dd><p>str: 返回 “upload successfully” 表示上传成功。
+如果发生异常，返回错误信息。</p>
+</dd>
+<dt>示例:</dt><dd><p>使用 POST 请求上传煤数据:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请求</span><span class="p">:</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">UploadUserCoalData</span>
+<span class="n">上传文件</span><span class="p">:</span> <span class="n">user_coal_data</span><span class="o">.</span><span class="n">xlsx</span>
+
+<span class="n">返回</span><span class="p">:</span>
+<span class="p">::</span>
+<span class="s2">&quot;upload successfully&quot;</span>
+</pre></div>
+</div>
+</dd>
+<dt>注意事项:</dt><dd><ul class="simple">
+<li><p>上传的文件必须为 Excel 格式（如 <cite>.xlsx</cite> 或 <cite>.xls</cite>）。</p></li>
+<li><p>文件将被保存到 <cite>../src/assets/Upload_files/upload_coal.xlsx</cite> 路径。</p></li>
+<li><p>确保目标目录存在且具有写入权限。</p></li>
+</ul>
+</dd>
+<dt>错误处理:</dt><dd><ul class="simple">
+<li><p>如果文件上传失败或保存出错，将返回详细的错误消息。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="genetic_algorithm_geatpy2.html" class="btn btn-neutral float-left" title="genetic_algorithm_geatpy2 module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ModelPredict.html" class="btn btn-neutral float-right" title="ModelPredict module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuhang Qiu, Haodong Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

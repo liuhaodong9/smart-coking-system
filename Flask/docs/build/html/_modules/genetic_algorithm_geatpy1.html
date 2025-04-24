@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>genetic_algorithm_geatpy1 &mdash; Smart Coking System Documentation v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/modify.css?v=49f62740" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=aabfef7a"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Smart Coking System Documentation
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/overview.html">智慧焦化用户手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/overview.html">开发者帮助文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/blender.html">Blender 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/updates.html">程序的修改与维护</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/coalData.html">coalData module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/coal_quality_model_AI.html">coal_quality_model_AI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/DataProcess.html">DataProcess Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/Example.html">Example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy1.html">genetic_algorithm_geatpy1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy2.html">genetic_algorithm_geatpy2 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/login.html">login module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ModelPredict.html">ModelPredict module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/typeClassfication.html">typeClassfication module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Smart Coking System Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">genetic_algorithm_geatpy1</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for genetic_algorithm_geatpy1</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">geatpy</span> <span class="k">as</span> <span class="nn">ea</span>
+
+<div class="viewcode-block" id="MyProblem"><a class="viewcode-back" href="../api/genetic_algorithm_geatpy1.html#genetic_algorithm_geatpy1.MyProblem">[docs]</a><span class="k">class</span> <span class="nc">MyProblem</span><span class="p">(</span><span class="n">ea</span><span class="o">.</span><span class="n">Problem</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    MyProblem 类定义了一个煤炭配比优化问题。</span>
+<span class="sd">    优化目标是根据价格和煤炭特性 (CRI, CSR, M10, M25) 在满足约束条件的前提下，找到最优解。</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputDim</span><span class="p">,</span> <span class="n">lb</span><span class="p">,</span> <span class="n">ub</span><span class="p">,</span> <span class="n">lbin</span><span class="p">,</span> <span class="n">ubin</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">CRI_range</span><span class="p">,</span> <span class="n">CSR_range</span><span class="p">,</span> 
+                 <span class="n">M10_range</span><span class="p">,</span> <span class="n">M25_range</span><span class="p">,</span> <span class="n">CRI_min</span><span class="p">,</span> <span class="n">CRI_max</span><span class="p">,</span> <span class="n">CSR_min</span><span class="p">,</span> <span class="n">CSR_max</span><span class="p">,</span> 
+                 <span class="n">M10_min</span><span class="p">,</span> <span class="n">M10_max</span><span class="p">,</span> <span class="n">M25_min</span><span class="p">,</span> <span class="n">M25_max</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        初始化 MyProblem 对象，设置决策变量维度、上下界、约束和优化目标。</span>
+
+<span class="sd">        参数：</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputDim : int</span>
+<span class="sd">            决策变量的维度（煤炭种类数）。</span>
+<span class="sd">        lb : list of float</span>
+<span class="sd">            决策变量的下界。</span>
+<span class="sd">        ub : list of float</span>
+<span class="sd">            决策变量的上界。</span>
+<span class="sd">        lbin : list of int</span>
+<span class="sd">            下界包含标志（1 表示包含，0 表示不包含）。</span>
+<span class="sd">        ubin : list of int</span>
+<span class="sd">            上界包含标志（1 表示包含，0 表示不包含）。</span>
+<span class="sd">        price : list of float</span>
+<span class="sd">            各变量对应的价格，用于目标函数。</span>
+<span class="sd">        CRI_range : list of float</span>
+<span class="sd">            各变量的 CRI 值，用于计算混合煤炭的 CRI。</span>
+<span class="sd">        CSR_range : list of float</span>
+<span class="sd">            各变量的 CSR 值，用于计算混合煤炭的 CSR。</span>
+<span class="sd">        M10_range : list of float</span>
+<span class="sd">            各变量的 M10 值，用于计算混合煤炭的 M10。</span>
+<span class="sd">        M25_range : list of float</span>
+<span class="sd">            各变量的 M25 值，用于计算混合煤炭的 M25。</span>
+<span class="sd">        CRI_min, CRI_max : float</span>
+<span class="sd">            混合煤炭的 CRI 的最小和最大允许值。</span>
+<span class="sd">        CSR_min, CSR_max : float</span>
+<span class="sd">            混合煤炭的 CSR 的最小和最大允许值。</span>
+<span class="sd">        M10_min, M10_max : float</span>
+<span class="sd">            混合煤炭的 M10 的最小和最大允许值。</span>
+<span class="sd">        M25_min, M25_max : float</span>
+<span class="sd">            混合煤炭的 M25 的最小和最大允许值。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;MyProblem&#39;</span>  <span class="c1"># 问题名称</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 目标维度（单目标优化）</span>
+        <span class="n">maxormins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 优化方向，1 表示最小化</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Dim</span> <span class="o">=</span> <span class="n">inputDim</span>  <span class="c1"># 决策变量维度</span>
+        <span class="n">varTypes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dim</span>  <span class="c1"># 决策变量类型（0 表示连续变量）</span>
+
+        <span class="c1"># 初始化父类 ea.Problem</span>
+        <span class="n">ea</span><span class="o">.</span><span class="n">Problem</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">maxormins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dim</span><span class="p">,</span> <span class="n">varTypes</span><span class="p">,</span> <span class="n">lb</span><span class="p">,</span> <span class="n">ub</span><span class="p">,</span> <span class="n">lbin</span><span class="p">,</span> <span class="n">ubin</span><span class="p">)</span>
+
+        <span class="c1"># 初始化特性值和约束参数</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CRI_range</span> <span class="o">=</span> <span class="n">CRI_range</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CSR_range</span> <span class="o">=</span> <span class="n">CSR_range</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M10_range</span> <span class="o">=</span> <span class="n">M10_range</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M25_range</span> <span class="o">=</span> <span class="n">M25_range</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">CRI_min</span> <span class="o">=</span> <span class="n">CRI_min</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CRI_max</span> <span class="o">=</span> <span class="n">CRI_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CSR_min</span> <span class="o">=</span> <span class="n">CSR_min</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CSR_max</span> <span class="o">=</span> <span class="n">CSR_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M10_min</span> <span class="o">=</span> <span class="n">M10_min</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M10_max</span> <span class="o">=</span> <span class="n">M10_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M25_min</span> <span class="o">=</span> <span class="n">M25_min</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M25_max</span> <span class="o">=</span> <span class="n">M25_max</span>
+
+<div class="viewcode-block" id="MyProblem.aimFunc"><a class="viewcode-back" href="../api/genetic_algorithm_geatpy1.html#genetic_algorithm_geatpy1.MyProblem.aimFunc">[docs]</a>    <span class="k">def</span> <span class="nf">aimFunc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pop</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        计算种群的目标函数值和约束条件。</span>
+
+<span class="sd">        参数：</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pop : Population</span>
+<span class="sd">            包含多个个体的种群对象，每个个体表示一个煤炭配比方案。</span>
+<span class="sd">        </span>
+<span class="sd">        更新：</span>
+<span class="sd">        ----------</span>
+<span class="sd">        - `pop.ObjV`：更新为每个个体的目标值（即配比的总成本）。</span>
+<span class="sd">        - `pop.CV`：更新为每个个体的约束值（违反约束的程度）。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Vars</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">Phen</span>  <span class="c1"># 提取种群的决策变量</span>
+        <span class="n">var_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">Vars</span><span class="p">[:,</span> <span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Dim</span><span class="p">)]</span>  <span class="c1"># 将每一列变量提取为单独数组</span>
+
+        <span class="c1"># 目标函数：配比成本的加权和</span>
+        <span class="n">pop</span><span class="o">.</span><span class="n">ObjV</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">var_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">)))</span>
+
+        <span class="c1"># 约束条件</span>
+        <span class="c1"># 1. 配比比例的总和必须为 1</span>
+        <span class="n">proportion_formula_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">var_array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># 2. CRI 值范围约束</span>
+        <span class="n">proportion_formula_2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">var_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CRI_range</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">var_array</span><span class="p">)))</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">CRI_min</span>
+        <span class="n">proportion_formula_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">proportion_formula_2</span>
+        <span class="n">proportion_formula_3</span> <span class="o">=</span> <span class="n">proportion_formula_2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">CRI_max</span>
+
+        <span class="c1"># 3. CSR 值范围约束</span>
+        <span class="n">proportion_formula_4</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">var_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CSR_range</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">var_array</span><span class="p">)))</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">CSR_min</span>
+        <span class="n">proportion_formula_4</span> <span class="o">=</span> <span class="o">-</span><span class="n">proportion_formula_4</span>
+        <span class="n">proportion_formula_5</span> <span class="o">=</span> <span class="n">proportion_formula_4</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">CSR_max</span>
+
+        <span class="c1"># 4. M10 值范围约束</span>
+        <span class="n">proportion_formula_6</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">var_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">M10_range</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">var_array</span><span class="p">)))</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">M10_min</span>
+        <span class="n">proportion_formula_6</span> <span class="o">=</span> <span class="o">-</span><span class="n">proportion_formula_6</span>
+        <span class="n">proportion_formula_7</span> <span class="o">=</span> <span class="n">proportion_formula_6</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">M10_max</span>
+
+        <span class="c1"># 5. M25 值范围约束</span>
+        <span class="n">proportion_formula_8</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">var_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">M25_range</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">var_array</span><span class="p">)))</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">M25_min</span>
+        <span class="n">proportion_formula_8</span> <span class="o">=</span> <span class="o">-</span><span class="n">proportion_formula_8</span>
+        <span class="n">proportion_formula_9</span> <span class="o">=</span> <span class="n">proportion_formula_8</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">M25_max</span>
+
+        <span class="c1"># 将所有约束组合</span>
+        <span class="n">pop</span><span class="o">.</span><span class="n">CV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span>
+            <span class="n">proportion_formula_1</span><span class="p">,</span> <span class="n">proportion_formula_2</span><span class="p">,</span> <span class="n">proportion_formula_3</span><span class="p">,</span>
+            <span class="n">proportion_formula_4</span><span class="p">,</span> <span class="n">proportion_formula_5</span><span class="p">,</span> <span class="n">proportion_formula_6</span><span class="p">,</span>
+            <span class="n">proportion_formula_7</span><span class="p">,</span> <span class="n">proportion_formula_8</span><span class="p">,</span> <span class="n">proportion_formula_9</span>
+        <span class="p">])</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuhang Qiu, Haodong Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

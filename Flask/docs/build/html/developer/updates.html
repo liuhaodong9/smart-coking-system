@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>程序的修改与维护 &mdash; Smart Coking System Documentation v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/modify.css?v=49f62740" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=aabfef7a"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="coalData module" href="../api/coalData.html" />
+    <link rel="prev" title="Blender 教程" href="blender.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Smart Coking System Documentation
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/overview.html">智慧焦化用户手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">开发者帮助文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blender.html">Blender 教程</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">程序的修改与维护</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ssh">SSH 远程调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gunicorn-nginx">生产部署（Gunicorn + Nginx）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker">Docker 部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx">更新 Sphinx 帮助文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">常见问题排查</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/coalData.html">coalData module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/coal_quality_model_AI.html">coal_quality_model_AI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/DataProcess.html">DataProcess Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/Example.html">Example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy1.html">genetic_algorithm_geatpy1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy2.html">genetic_algorithm_geatpy2 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/login.html">login module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ModelPredict.html">ModelPredict module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/typeClassfication.html">typeClassfication module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Smart Coking System Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">程序的修改与维护</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developer/updates.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>程序的修改与维护<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>本文档基于 Smart-Coking 项目当前部署流程，覆盖 <strong>远程调试、生产部署、Docker 运行</strong> 以及 <strong>Sphinx 帮助文档</strong> 更新等常见场景。</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#ssh" id="id3">SSH 远程调试</a></p></li>
+<li><p><a class="reference internal" href="#gunicorn-nginx" id="id4">生产部署（Gunicorn + Nginx）</a></p></li>
+<li><p><a class="reference internal" href="#docker" id="id5">Docker 部署</a></p></li>
+<li><p><a class="reference internal" href="#sphinx" id="id6">更新 Sphinx 帮助文档</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id7">常见问题排查</a></p></li>
+</ul>
+</nav>
+<section id="ssh">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">SSH 远程调试</a><a class="headerlink" href="#ssh" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>启动后端（Flask）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">5000</span>:localhost:5000<span class="w"> </span>&lt;USER&gt;@&lt;SERVER_IP&gt;
+如ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">5000</span>:localhost:5000<span class="w"> </span>liuhaodong@211.68.155.21
+conda<span class="w"> </span>activate<span class="w"> </span>coke
+<span class="nb">cd</span><span class="w"> </span>/opt/smart-coking/smart-coking-system/Flask
+python<span class="w"> </span>login.py
+</pre></div>
+</div>
+</li>
+<li><p>启动前端（Vue）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8080</span>:localhost:8080<span class="w"> </span>&lt;USER&gt;@&lt;SERVER_IP&gt;
+如ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8080</span>:localhost:8080<span class="w"> </span>liuhaodong@211.68.155.21
+<span class="nb">cd</span><span class="w"> </span>/opt/smart-coking/smart-coking-system/Flask
+npm<span class="w"> </span>run<span class="w"> </span>serve
+</pre></div>
+</div>
+</li>
+<li><p>本地访问测试</p>
+<p>浏览器访问 <cite>http://localhost:8080</cite>，确认页面与接口均正常。</p>
+</li>
+<li><p>打包并发布前端静态文件</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>run<span class="w"> </span>build
+sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+</pre></div>
+</div>
+</li>
+<li><p>后端守护（Gunicorn）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pkill<span class="w"> </span>-f<span class="w"> </span>gunicorn<span class="w">          </span><span class="c1"># 结束旧进程（可选）</span>
+gunicorn<span class="w"> </span>-w<span class="w"> </span><span class="m">4</span><span class="w"> </span>-b<span class="w"> </span><span class="m">0</span>.0.0.0:5000<span class="w"> </span>login:app<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>端口 <strong>5000</strong> 若正常监听，则后端已在后台运行。</p>
+</li>
+</ol>
+</section>
+<section id="gunicorn-nginx">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">生产部署（Gunicorn + Nginx）</a><a class="headerlink" href="#gunicorn-nginx" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>构建并发布前端静态文件</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/opt/smart-coking/smart-coking-system/Flask
+npm<span class="w"> </span>run<span class="w"> </span>build
+sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+</pre></div>
+</div>
+<p>&gt; Nginx 缺省将 <cite>dist/</cite> 挂载到 <cite>/var/www/smart-coking</cite>。若修改，请同步调整 <cite>nginx.conf</cite> 中 <cite>root</cite> 路径。</p>
+</li>
+<li><p>持久化运行后端服务</p>
+<ol class="arabic">
+<li><p>创建服务文件 <cite>/etc/systemd/system/smart-coking.service</cite>：</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">Smart-Coking Flask API</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+
+<span class="k">[Service]</span>
+<span class="na">User</span><span class="o">=</span><span class="s">www-data</span>
+<span class="na">Group</span><span class="o">=</span><span class="s">www-data</span>
+<span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/opt/smart-coking/smart-coking-system/Flask</span>
+<span class="na">Environment</span><span class="o">=</span><span class="s">&quot;PATH=/opt/miniconda/envs/coke/bin&quot;</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/miniconda/envs/coke/bin/gunicorn -w 4 -b 0.0.0.0:5000 login:app</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="na">RestartSec</span><span class="o">=</span><span class="s">5</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</pre></div>
+</div>
+</li>
+<li><p>启用并启动服务：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>smart-coking.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>smart-coking.service
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="docker">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Docker 部署</a><a class="headerlink" href="#docker" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>构建镜像</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-org/smart-coking.git
+<span class="nb">cd</span><span class="w"> </span>smart-coking
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>smart-coking:latest<span class="w"> </span>.
+</pre></div>
+</div>
+</li>
+<li><p>运行容器</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>smart-coking<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">5000</span>:5000<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>smart-coking-data:/data<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--restart<span class="o">=</span>unless-stopped<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>smart-coking:latest
+</pre></div>
+</div>
+</li>
+<li><p>docker-compose 示例</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">smart-coking</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5000:5000&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">smart-coking-data:/data</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">smart-coking-data</span><span class="p">:</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="sphinx">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">更新 Sphinx 帮助文档</a><a class="headerlink" href="#sphinx" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/opt/smart-coking/smart-coking-system/Flask/docs
+<span class="c1"># 在 docs 目录下</span>
+rm<span class="w"> </span>-Recurse<span class="w"> </span>-Force<span class="w"> </span>build<span class="w">          </span><span class="c1"># 或 make clean</span>
+sphinx-build<span class="w"> </span>-E<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span><span class="nb">source</span><span class="w"> </span>build/html<span class="w">   </span><span class="c1"># 重新完整构建</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">常见问题排查</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>端口占用</strong> — <cite>lsof -i :5000</cite> 或 <cite>lsof -i :8080</cite></p></li>
+<li><p><strong>Nginx 无法加载新静态文件</strong> — 检查 <cite>sudo systemctl reload nginx</cite> 与 <cite>/var/log/nginx/error.log</cite></p></li>
+<li><p><strong>前端资源路径不正确</strong> — 核对 <cite>vue.config.js</cite> 中的 <cite>publicPath</cite> 是否匹配 Nginx <cite>location</cite></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="blender.html" class="btn btn-neutral float-left" title="Blender 教程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api/coalData.html" class="btn btn-neutral float-right" title="coalData module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuhang Qiu, Haodong Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

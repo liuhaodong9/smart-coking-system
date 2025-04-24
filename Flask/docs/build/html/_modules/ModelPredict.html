@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ModelPredict &mdash; Smart Coking System Documentation v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/modify.css?v=49f62740" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=aabfef7a"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Smart Coking System Documentation
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/overview.html">智慧焦化用户手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/overview.html">开发者帮助文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/blender.html">Blender 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/updates.html">程序的修改与维护</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/coalData.html">coalData module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/coal_quality_model_AI.html">coal_quality_model_AI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/DataProcess.html">DataProcess Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/Example.html">Example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy1.html">genetic_algorithm_geatpy1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy2.html">genetic_algorithm_geatpy2 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/login.html">login module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ModelPredict.html">ModelPredict module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/typeClassfication.html">typeClassfication module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Smart Coking System Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ModelPredict</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ModelPredict</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<div class="viewcode-block" id="valuebycenter"><a class="viewcode-back" href="../api/ModelPredict.html#ModelPredict.valuebycenter">[docs]</a><span class="k">def</span> <span class="nf">valuebycenter</span><span class="p">(</span><span class="n">center</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">l_up</span> <span class="o">=</span> <span class="n">distancecal</span><span class="p">(</span><span class="n">center</span><span class="p">,</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span> <span class="c1"># Feeding one center point and the up edge point</span>
+    <span class="n">l_low</span> <span class="o">=</span> <span class="n">distancecal</span><span class="p">(</span><span class="n">center</span><span class="p">,</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">l_low</span><span class="o">/</span><span class="p">(</span><span class="n">l_up</span> <span class="o">+</span> <span class="n">l_low</span><span class="p">)</span> <span class="o">+</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># edge[1,1] provide the lowest value of Y</span>
+    <span class="k">return</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="distancecal"><a class="viewcode-back" href="../api/ModelPredict.html#ModelPredict.distancecal">[docs]</a><span class="k">def</span> <span class="nf">distancecal</span><span class="p">(</span><span class="n">point1</span><span class="p">,</span><span class="n">point2</span><span class="p">):</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">point1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">point2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">point1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">point2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># Calculate the distance from center point to the edge point</span>
+    <span class="k">return</span> <span class="n">l</span></div>
+
+<div class="viewcode-block" id="centerresult"><a class="viewcode-back" href="../api/ModelPredict.html#ModelPredict.centerresult">[docs]</a><span class="k">def</span> <span class="nf">centerresult</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PreValue&#39;</span><span class="p">,</span><span class="s1">&#39;Distance&#39;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">parameter</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span> <span class="c1"># Parameter came from the model, and here is a bunch of same parameter in the model</span>
+        <span class="n">center</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">m</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Extract the center point and processing it one by one</span>
+        <span class="n">edgepoint</span> <span class="o">=</span> <span class="n">edge</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Extract the edge points (up point and low point, two points 2x and 2y)</span>
+        <span class="n">prevalue</span> <span class="o">=</span> <span class="n">valuebycenter</span><span class="p">(</span><span class="n">center</span><span class="p">,</span><span class="n">edgepoint</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="c1"># Feeding one center point in, and two edge points and the range, provide the value by single center</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># the distance of the center to the predict value (the X input parameter) give the weight to each center</span>
+        <span class="n">record</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">prevalue</span><span class="p">,</span><span class="n">distance</span><span class="p">]</span> <span class="c1"># Record the value and distance</span>
+    <span class="k">return</span> <span class="n">record</span> <span class="c1"># Return a [Value,distance] multiline matrix (Depends on how many centers for one parameter)</span></div>
+
+<div class="viewcode-block" id="votePre"><a class="viewcode-back" href="../api/ModelPredict.html#ModelPredict.votePre">[docs]</a><span class="k">def</span> <span class="nf">votePre</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># Get the sum of distance</span>
+    <span class="n">prevalue</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">reverse</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span> <span class="c1"># Calculate the weighted predict value line by line</span>
+            <span class="n">prevalue</span> <span class="o">+=</span> <span class="nb">input</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nb">input</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span><span class="p">)</span> <span class="c1"># input.iloc[i,1]/sum means weight of the distance of the center, and the value high means far away from the predict value and should give lower impact by 1-input.iloc[i,1]/sum</span>
+        <span class="n">prevalue</span> <span class="o">/=</span> <span class="n">i</span> <span class="c1"># Get the average value of the prediction</span>
+    <span class="k">elif</span> <span class="n">reverse</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">prevalue</span> <span class="o">+=</span> <span class="nb">input</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">input</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span> <span class="c1"># the higher K means higher influence, and should give more weight</span>
+    <span class="k">return</span> <span class="n">prevalue</span></div>
+
+<div class="viewcode-block" id="singlepred"><a class="viewcode-back" href="../api/ModelPredict.html#ModelPredict.singlepred">[docs]</a><span class="k">def</span> <span class="nf">singlepred</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">model</span><span class="p">):</span>
+    <span class="n">varlist</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PreValue&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">varlist</span><span class="p">[</span><span class="n">i</span><span class="p">],:]</span> <span class="c1"># p for parameters</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># for one parameter</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">y_up</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">r</span>
+            <span class="n">y_low</span> <span class="o">=</span> <span class="n">y_up</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span>
+            <span class="n">edge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+            <span class="n">edge</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;up&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y_up</span><span class="p">]</span>
+            <span class="n">edge</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;low&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y_low</span><span class="p">]</span>
+            <span class="n">singleresult</span> <span class="o">=</span> <span class="n">centerresult</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">preValue</span> <span class="o">=</span> <span class="n">votePre</span><span class="p">(</span><span class="n">singleresult</span><span class="p">)</span>
+            <span class="n">record</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">preValue</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span> <span class="c1"># Record the value of each parameter and the abs.K for them to evaluate the influence</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">votePre</span><span class="p">(</span><span class="n">record</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> 
+    <span class="c1">#output = (output-c)/k</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span> <span class="n">c</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+
+<div class="viewcode-block" id="modelpredict"><a class="viewcode-back" href="../api/ModelPredict.html#ModelPredict.modelpredict">[docs]</a><span class="k">def</span> <span class="nf">modelpredict</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span><span class="n">model</span><span class="p">):</span>
+    <span class="n">predict</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Prediction&#39;</span><span class="p">])</span>
+    <span class="n">indexlist</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">parameter</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">parameter</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">)</span>
+        <span class="n">prevalue</span> <span class="o">=</span> <span class="n">singlepred</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span><span class="n">model</span><span class="p">)</span>
+        <span class="n">predict</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indexlist</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">prevalue</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">predict</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuhang Qiu, Haodong Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coalData &mdash; Smart Coking System Documentation v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/modify.css?v=49f62740" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=aabfef7a"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Smart Coking System Documentation
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/overview.html">智慧焦化用户手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/overview.html">开发者帮助文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/blender.html">Blender 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/updates.html">程序的修改与维护</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/coalData.html">coalData module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/coal_quality_model_AI.html">coal_quality_model_AI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/DataProcess.html">DataProcess Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/Example.html">Example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy1.html">genetic_algorithm_geatpy1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/genetic_algorithm_geatpy2.html">genetic_algorithm_geatpy2 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/login.html">login module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ModelPredict.html">ModelPredict module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/typeClassfication.html">typeClassfication module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Smart Coking System Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">coalData</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for coalData</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+<span class="kn">import</span> <span class="nn">pymysql</span>
+<span class="n">pymysql</span><span class="o">.</span><span class="n">install_as_MySQLdb</span><span class="p">()</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span> <span class="c1">#2个文件只要有一个app即可</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;JSON_AS_ASCII&#39;</span><span class="p">]</span> <span class="o">=</span><span class="kc">False</span>
+
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">supports_credentials</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="sa">r</span><span class="s1">&#39;/*&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;origins&#39;</span><span class="p">:</span> <span class="s1">&#39;*&#39;</span><span class="p">}})</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQLALCHEMY_DATABASE_URI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mysql://root:123456@127.0.0.1:3306/coaldata?charset=utf8&#39;</span> <span class="c1">#访问数据库</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQLALCHEMY_TRACK_MODIFICATIONS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="c1">#构建煤数据的表结构以及获取方法</span>
+<div class="viewcode-block" id="CoalDataGeneration"><a class="viewcode-back" href="../api/coalData.html#coalData.CoalDataGeneration">[docs]</a><span class="k">class</span> <span class="nc">CoalDataGeneration</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    CoalDataGeneration类用于管理煤分子的多种数据生成，包括煤分子描述符、光谱数据、煤样的物理化学特性等。</span>
+<span class="sd">    该类主要用于煤样分析数据的存储与处理，支持煤的多种实验和数据分析，包括煤样筛选分布、工业分析、元素组成、焦化过程参数、焦炭质量等多种属性数据。</span>
+<span class="sd">    </span>
+<span class="sd">    具体功能：</span>
+<span class="sd">    1. 该类存储煤样和焦炭样品的各类实验分析数据，包括筛分组分、煤的工业分析、元素分析、焦化温度与过程参数等。</span>
+<span class="sd">    2. 煤样的各种物理、化学特性，如水分、固定碳、挥发分、灰分、密度、粘结指数等，都可以通过该模型进行存储和分析。</span>
+<span class="sd">    3. 焦化过程数据包括炼焦温度、焦化结束时间、焦炭强度、气孔率等，也可通过该类进行保存与管理。</span>
+<span class="sd">    4. 支持数据与深度学习模型的结合，可为训练煤炭相关的回归或分类模型提供原始数据输入。</span>
+<span class="sd">    5. 可根据具体的需求为煤样和焦炭样品构建特定的模型，用于进一步分析或预测煤的燃烧、气化、焦化等过程中的性能表现。</span>
+
+<span class="sd">    本类可以为煤炭行业的数据分析、模型训练、过程优化等提供强大的支持，是煤炭研究与生产过程数字化转型的重要工具。</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;CoalData_table&#39;</span>
+    <span class="c1"># 数据表字段定义</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#煤基本索引信息</span>
+    <span class="n">coal_name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">coal_belong</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">coal_type</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">coal_price</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+    
+    <span class="c1">#原始试验煤样筛选组分</span>
+    <span class="n">ori_coal_13mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_13_10mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>  
+    <span class="n">ori_coal_10_8mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_8_6mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_6_5mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_5_4mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_4_3mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_3_2mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_2_1mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_1_05mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_05mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_total</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ori_coal_fineness</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#粉碎后筛选组分</span>
+    <span class="n">sma_coal_moi</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma__coal_6mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma__coal_6_5mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma__coal_5_4mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma__coal_4_3mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma__coal_3_2mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma__coal_2_1mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma__coal_1_05mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma__coal_05mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma__coal_total</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">sma_coal_fineness</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#煤样工业分析</span>
+    <span class="n">coal_mad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_ad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_vdaf</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_fcd</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_vd</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_ada</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_vad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_fcad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_std</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#元素分析(分析基)</span>
+    <span class="n">coal_ana_had</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_ana_cad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_ana_nad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_ana_oad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#元素分析(干基)</span>
+    <span class="n">coal_dry_hd</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_dry_cd</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_dry_nd</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_dry_od</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#元素分析(干燥无灰基)</span>
+    <span class="n">coal_drynoash_hdaf</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_drynoash_cdaf</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_drynoash_ndaf</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coal_drynoash_odaf</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#粘结指数</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#胶质层指数</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#奥亚膨胀度</span>
+    <span class="n">T1</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">T2</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">T3</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#基氏流动度</span>
+    <span class="n">Tp</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">Tmax</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">Tk</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">amax</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">Tk_Tp</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#煤灰熔点</span>
+    <span class="n">DT</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ST</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">HT</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">FT</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#灰成分</span>
+    <span class="n">SiO2</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">Al2O3</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">Fe2O3</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">CaO</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">MgO</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">P2O5</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">Na2O</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">K2O</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">TiO2</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">SO3</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ash_total</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#煤样显微组分分析</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">live_idle_ratio</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">Rmax</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">micro_var</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">micro_type</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="c1">#炼焦过程参数</span>
+    <span class="n">oven_type</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">coking_style</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">dry_quality</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">heap_density</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">oven_moi</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">up_temper</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">down_number</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+    <span class="n">hot_coke_qulity</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">hot_ratio_coke</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">quench_coke_weight</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_moi</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">ratio_coke</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#炼焦温度参数</span>
+    <span class="n">coking_date</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">coking_process_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">coking_start_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">center_100_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">center_500_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">center_900_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">coking_end_time</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">coking_end_temp</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="c1">#焦炭工业分析</span>
+    <span class="n">coke_mad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_ad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_vdaf</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_fcd</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_vd</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_aad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_vad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_fcad</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_std</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#焦炭筛分组成</span>
+    <span class="n">coke_80mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_80_60mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_60_40mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_40_25mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_25_20mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_20_10mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_10mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_5mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_sum</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_60mm</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_fineness</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#机械强度</span>
+    <span class="n">coke_M40</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_M25</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_M10</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#热性质</span>
+    <span class="n">coke_CRI</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_CSR</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#焦炭灰熔点</span>
+    <span class="n">coke_DT</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_ST</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_HT</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_FT</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#粉焦反应性</span>
+    <span class="n">coke_750</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_800</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_850</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_900</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_950</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_1000</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_1050</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_1100</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_1150</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_1200</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="c1">#气孔率</span>
+    <span class="n">coke_apparent_porosity</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_real_density</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_fake_density</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">coke_total_ratio</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_CRI</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_CSR</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_M10</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_M25</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_CRI_expert</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_CSR_expert</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_M10_expert</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_M25_expert</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_CRI_error</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_CSR_error</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_M10_error</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="n">predicted_M25_error</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CoalDataGeneration.response"><a class="viewcode-back" href="../api/coalData.html#coalData.CoalDataGeneration.response">[docs]</a>    <span class="k">def</span> <span class="nf">response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">CoalData</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        该方法用于处理煤样数据（CoalData）。如果未提供CoalData，则默认为None。</span>
+<span class="sd">        根据实际需求，可以在这里进行煤数据的处理、转换、存储等操作。</span>
+<span class="sd">        </span>
+<span class="sd">        此方法首先判断传入的煤样数据是否为空，如果为空，则返回一个错误提示。</span>
+<span class="sd">        如果提供了有效的煤样数据，将依次处理每个煤样信息，并提取、计算相关数据，如焦炭质量、筛分组成、元素分析等。</span>
+<span class="sd">        最终返回一个包含所有煤样处理信息的列表。</span>
+
+<span class="sd">        :param CoalData: 输入的煤数据，默认为None。通常是一个包含煤样信息的数据结构（如字典、列表或数据库模型实例等）。</span>
+<span class="sd">                        CoalData中的每一项应当包含煤样的各类实验数据和参数，如筛分组成、元素分析、焦炭质量等。</span>
+<span class="sd">        :return: 返回处理后的煤样数据列表，每项数据包括煤样的基本信息和计算出的结果。</span>
+<span class="sd">                如果CoalData为空，则返回一个错误提示字符串。</span>
+<span class="sd">        </span>
+<span class="sd">        处理流程：</span>
+<span class="sd">        1. 判断CoalData是否为None，如果是，返回错误提示；</span>
+<span class="sd">        2. 遍历每个煤样项，提取并计算煤样的相关参数：</span>
+<span class="sd">        2.1. 焦炭质量参数（如预测的CSR、CRI等）</span>
+<span class="sd">        2.2. 各种煤样筛分组分数据（如煤样筛分粒度）</span>
+<span class="sd">        2.3. 工业分析和元素分析结果</span>
+<span class="sd">        2.4. 粘结指数、膨胀度、热性质、机械强度等其他特征</span>
+<span class="sd">        3. 将处理后的每个煤样数据以字典的形式添加到结果列表中，并返回该列表。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">CoalData</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;Error0101, the CoalData is None&#39;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">CoalData</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">predicted_CSR_expert</span> <span class="ow">and</span> <span class="n">item</span><span class="o">.</span><span class="n">predicted_CSR</span><span class="p">:</span>
+                <span class="n">predicted_CSR_error</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_CSR_expert</span><span class="o">-</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_CSR</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">predicted_CSR_error</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="c1">#煤基本索引信息</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;coal_name&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">coal_name</span><span class="p">,</span> <span class="s1">&#39;coal_belong&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">coal_belong</span><span class="p">,</span> <span class="s1">&#39;coal_type&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">coal_type</span><span class="p">,</span>
+            <span class="s1">&#39;coal_price&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_price</span><span class="p">,</span> 
+            <span class="c1">#原始试验煤样筛选组分</span>
+            <span class="s1">&#39;ori_coal_13mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_13mm</span><span class="p">,</span> <span class="s1">&#39;ori_coal_13_10mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_13_10mm</span><span class="p">,</span>
+            <span class="s1">&#39;ori_coal_10_8mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_10_8mm</span><span class="p">,</span><span class="s1">&#39;ori_coal_8_6mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_8_6mm</span><span class="p">,</span><span class="s1">&#39;ori_coal_6_5mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_6_5mm</span><span class="p">,</span>
+            <span class="s1">&#39;ori_coal_5_4mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_5_4mm</span><span class="p">,</span><span class="s1">&#39;ori_coal_4_3mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_4_3mm</span><span class="p">,</span><span class="s1">&#39;ori_coal_3_2mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_3_2mm</span><span class="p">,</span>
+            <span class="s1">&#39;ori_coal_2_1mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_2_1mm</span><span class="p">,</span><span class="s1">&#39;ori_coal_1_05mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_1_05mm</span><span class="p">,</span><span class="s1">&#39;ori_coal_05mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_05mm</span><span class="p">,</span>
+            <span class="s1">&#39;ori_coal_total&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_total</span><span class="p">,</span><span class="s1">&#39;ori_coal_fineness&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ori_coal_fineness</span><span class="p">,</span>
+            <span class="c1">#粉碎后筛选组分</span>
+            <span class="s1">&#39;sma_coal_moi&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma_coal_moi</span><span class="p">,</span><span class="s1">&#39;sma__coal_6mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma__coal_6mm</span><span class="p">,</span><span class="s1">&#39;sma__coal_6_5mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma__coal_6_5mm</span><span class="p">,</span>
+            <span class="s1">&#39;sma__coal_5_4mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma__coal_5_4mm</span><span class="p">,</span><span class="s1">&#39;sma__coal_4_3mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma__coal_4_3mm</span><span class="p">,</span><span class="s1">&#39;sma__coal_3_2mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma__coal_3_2mm</span><span class="p">,</span>
+            <span class="s1">&#39;sma__coal_2_1mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma__coal_2_1mm</span><span class="p">,</span><span class="s1">&#39;sma__coal_1_05mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma__coal_1_05mm</span><span class="p">,</span><span class="s1">&#39;sma__coal_total&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma__coal_total</span><span class="p">,</span>
+            <span class="s1">&#39;sma_coal_fineness&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">sma_coal_fineness</span><span class="p">,</span>
+            <span class="c1">#煤样工业分析</span>
+            <span class="s1">&#39;coal_mad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_mad</span><span class="p">,</span><span class="s1">&#39;coal_ad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_ad</span><span class="p">,</span><span class="s1">&#39;coal_vdaf&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_vdaf</span><span class="p">,</span><span class="s1">&#39;coal_fcd&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_fcd</span><span class="p">,</span>
+            <span class="s1">&#39;coal_vd&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_vd</span><span class="p">,</span><span class="s1">&#39;coal_ada&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_ada</span><span class="p">,</span><span class="s1">&#39;coal_vad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_vad</span><span class="p">,</span><span class="s1">&#39;coal_fcad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_fcad</span><span class="p">,</span>
+            <span class="s1">&#39;coal_std&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_std</span><span class="p">,</span>
+            <span class="c1">#元素分析(分析基)</span>
+            <span class="s1">&#39;coal_ana_had&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_ana_had</span><span class="p">,</span><span class="s1">&#39;coal_ana_cad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_ana_cad</span><span class="p">,</span><span class="s1">&#39;coal_ana_nad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_ana_nad</span><span class="p">,</span>
+            <span class="s1">&#39;coal_ana_oad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_ana_oad</span><span class="p">,</span>
+            <span class="c1">#元素分析(干基)</span>
+            <span class="s1">&#39;coal_dry_hd&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_dry_hd</span><span class="p">,</span><span class="s1">&#39;coal_dry_cd&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_dry_cd</span><span class="p">,</span><span class="s1">&#39;coal_dry_nd&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_dry_nd</span><span class="p">,</span>
+            <span class="s1">&#39;coal_dry_od&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_dry_od</span><span class="p">,</span>
+            <span class="c1">#元素分析(干燥无灰基)</span>
+            <span class="s1">&#39;coal_drynoash_hdaf&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_drynoash_hdaf</span><span class="p">,</span><span class="s1">&#39;coal_drynoash_cdaf&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_drynoash_cdaf</span><span class="p">,</span><span class="s1">&#39;coal_drynoash_ndaf&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_drynoash_ndaf</span><span class="p">,</span>
+            <span class="s1">&#39;coal_drynoash_odaf&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coal_drynoash_odaf</span><span class="p">,</span>
+            <span class="c1">#粘结指数</span>
+            <span class="s1">&#39;G&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">G</span><span class="p">,</span>
+            <span class="c1">#胶质层指数</span>
+            <span class="s1">&#39;X&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">X</span><span class="p">,</span>
+            <span class="s1">&#39;Y&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span>
+            <span class="c1">#奥亚膨胀度</span>
+            <span class="s1">&#39;T1&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">T1</span><span class="p">,</span>
+            <span class="s1">&#39;T2&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">T2</span><span class="p">,</span>
+            <span class="s1">&#39;T3&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">T3</span><span class="p">,</span>
+            <span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">a</span><span class="p">,</span>
+            <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">b</span><span class="p">,</span>
+            <span class="c1">#基氏流动度</span>
+            <span class="s1">&#39;Tp&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">Tp</span><span class="p">,</span>
+            <span class="s1">&#39;Tmax&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">Tmax</span><span class="p">,</span>
+            <span class="s1">&#39;Tk&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">Tk</span><span class="p">,</span>
+            <span class="s1">&#39;amax&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">amax</span><span class="p">,</span>
+            <span class="s1">&#39;Tk_Tp&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">Tk_Tp</span><span class="p">,</span>
+             <span class="c1">#煤灰熔点</span>
+            <span class="s1">&#39;DT&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">DT</span><span class="p">,</span>
+            <span class="s1">&#39;ST&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ST</span><span class="p">,</span>
+            <span class="s1">&#39;HT&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">HT</span><span class="p">,</span>
+            <span class="s1">&#39;FT&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">FT</span><span class="p">,</span>
+            <span class="c1">#灰成分</span>
+            <span class="s1">&#39;SiO2&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">SiO2</span><span class="p">,</span>
+            <span class="s1">&#39;Al2O3&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">Al2O3</span><span class="p">,</span>
+            <span class="s1">&#39;Fe2O3&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">Fe2O3</span><span class="p">,</span>
+            <span class="s1">&#39;CaO&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">CaO</span><span class="p">,</span>
+            <span class="s1">&#39;MgO&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">MgO</span><span class="p">,</span>
+            <span class="s1">&#39;P2O5&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">P2O5</span><span class="p">,</span>
+            <span class="s1">&#39;Na2O&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">Na2O</span><span class="p">,</span>
+            <span class="s1">&#39;K2O&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">K2O</span><span class="p">,</span>
+            <span class="s1">&#39;TiO2&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">TiO2</span><span class="p">,</span>
+            <span class="s1">&#39;SO3&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">SO3</span><span class="p">,</span>
+            <span class="s1">&#39;ash_total&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ash_total</span><span class="p">,</span>
+            <span class="c1">#煤样显微组分分析</span>
+            <span class="s1">&#39;V&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">V</span><span class="p">,</span>
+            <span class="s1">&#39;I&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">I</span><span class="p">,</span>
+            <span class="s1">&#39;E&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">E</span><span class="p">,</span>
+            <span class="s1">&#39;M&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">M</span><span class="p">,</span>
+            <span class="s1">&#39;live_idle_ratio&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">live_idle_ratio</span><span class="p">,</span>
+            <span class="s1">&#39;Rmax&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">Rmax</span><span class="p">,</span>
+            <span class="s1">&#39;micro_var&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">micro_var</span><span class="p">,</span>
+            <span class="s1">&#39;micro_type&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">micro_type</span><span class="p">,</span>
+            <span class="c1">#炼焦过程参数</span>
+            <span class="s1">&#39;oven_type&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">oven_type</span><span class="p">,</span>
+            <span class="s1">&#39;coking_style&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coking_style</span><span class="p">,</span>
+            <span class="s1">&#39;dry_quality&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">dry_quality</span><span class="p">,</span>
+            <span class="s1">&#39;heap_density&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">heap_density</span><span class="p">,</span>
+            <span class="s1">&#39;oven_moi&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">oven_moi</span><span class="p">,</span>
+            <span class="s1">&#39;up_temper&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">up_temper</span><span class="p">,</span>
+            <span class="s1">&#39;down_number&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">down_number</span><span class="p">,</span>
+            <span class="s1">&#39;hot_coke_qulity&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">hot_coke_qulity</span><span class="p">,</span>
+            <span class="s1">&#39;hot_ratio_coke&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">hot_ratio_coke</span><span class="p">,</span>
+            <span class="s1">&#39;quench_coke_weight&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">quench_coke_weight</span><span class="p">,</span>
+            <span class="s1">&#39;coke_moi&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_moi</span><span class="p">,</span>
+            <span class="s1">&#39;ratio_coke&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">ratio_coke</span><span class="p">,</span>
+            <span class="c1">#炼焦温度参数</span>
+            <span class="s1">&#39;coking_date&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coking_date</span><span class="p">,</span>
+            <span class="s1">&#39;coking_process_time&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coking_process_time</span><span class="p">,</span>
+            <span class="s1">&#39;coking_start_time&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coking_start_time</span><span class="p">,</span>
+            <span class="s1">&#39;center_100_time&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">center_100_time</span><span class="p">,</span>
+            <span class="s1">&#39;center_500_time&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">center_500_time</span><span class="p">,</span>
+            <span class="s1">&#39;center_900_time&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">center_900_time</span><span class="p">,</span>
+            <span class="s1">&#39;coking_end_time&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coking_end_time</span><span class="p">,</span>
+            <span class="s1">&#39;coking_end_temp&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coking_end_temp</span><span class="p">,</span>
+            <span class="c1">#焦炭工业分析</span>
+            <span class="s1">&#39;coke_mad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_mad</span><span class="p">,</span>
+            <span class="s1">&#39;coke_ad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_ad</span><span class="p">,</span>
+            <span class="s1">&#39;coke_vdaf&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_vdaf</span><span class="p">,</span>
+            <span class="s1">&#39;coke_fcd&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_fcd</span><span class="p">,</span>
+            <span class="s1">&#39;coke_vd&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_vd</span><span class="p">,</span>
+            <span class="s1">&#39;coke_aad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_aad</span><span class="p">,</span>
+            <span class="s1">&#39;coke_vad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_vad</span><span class="p">,</span>
+            <span class="s1">&#39;coke_fcad&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_fcad</span><span class="p">,</span>
+            <span class="s1">&#39;coke_std&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_std</span><span class="p">,</span>
+            <span class="c1">#焦炭筛分组成</span>
+            <span class="s1">&#39;coke_80mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_80mm</span><span class="p">,</span>
+            <span class="s1">&#39;coke_80_60mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_80_60mm</span><span class="p">,</span>
+            <span class="s1">&#39;coke_60_40mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_60_40mm</span><span class="p">,</span>
+            <span class="s1">&#39;coke_40_25mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_40_25mm</span><span class="p">,</span>
+            <span class="s1">&#39;coke_25_20mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_25_20mm</span><span class="p">,</span>
+            <span class="s1">&#39;coke_20_10mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_20_10mm</span><span class="p">,</span>
+            <span class="s1">&#39;coke_10mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_10mm</span><span class="p">,</span>
+            <span class="s1">&#39;coke_5mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_5mm</span><span class="p">,</span>
+            <span class="s1">&#39;coke_60mm&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_60mm</span><span class="p">,</span>
+            <span class="s1">&#39;coke_fineness&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_fineness</span><span class="p">,</span>
+            <span class="c1">#机械强度</span>
+            <span class="s1">&#39;coke_M40&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_M40</span><span class="p">,</span>
+            <span class="s1">&#39;coke_M25&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_M25</span><span class="p">,</span>
+            <span class="s1">&#39;coke_M10&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_M10</span><span class="p">,</span>
+            <span class="c1">#热性质</span>
+            <span class="s1">&#39;coke_CRI&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_CRI</span><span class="p">,</span>
+            <span class="s1">&#39;coke_CSR&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_CSR</span><span class="p">,</span>
+            <span class="c1">#焦炭灰熔点</span>
+            <span class="s1">&#39;coke_DT&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_DT</span><span class="p">,</span>
+            <span class="s1">&#39;coke_ST&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_ST</span><span class="p">,</span>
+            <span class="s1">&#39;coke_HT&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_HT</span><span class="p">,</span>
+            <span class="s1">&#39;coke_FT&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_FT</span><span class="p">,</span>
+            <span class="c1">#粉焦反应性</span>
+            <span class="s1">&#39;coke_750&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_750</span><span class="p">,</span>
+            <span class="s1">&#39;coke_800&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_800</span><span class="p">,</span>
+            <span class="s1">&#39;coke_850&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_850</span><span class="p">,</span>
+            <span class="s1">&#39;coke_900&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_900</span><span class="p">,</span>
+            <span class="s1">&#39;coke_950&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_950</span><span class="p">,</span>
+            <span class="s1">&#39;coke_1000&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_1000</span><span class="p">,</span>
+            <span class="s1">&#39;coke_1050&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_1050</span><span class="p">,</span>
+            <span class="s1">&#39;coke_1100&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_1100</span><span class="p">,</span>
+            <span class="s1">&#39;coke_1150&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_1150</span><span class="p">,</span>
+            <span class="s1">&#39;coke_1200&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_1200</span><span class="p">,</span>
+            <span class="c1">#气孔率</span>
+            <span class="s1">&#39;coke_apparent_porosity&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_apparent_porosity</span><span class="p">,</span>
+            <span class="s1">&#39;coke_real_density&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_real_density</span><span class="p">,</span>
+            <span class="s1">&#39;coke_fake_density&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_fake_density</span><span class="p">,</span>
+            <span class="s1">&#39;coke_total_ratio&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">coke_total_ratio</span><span class="p">,</span>
+            <span class="c1">#预测的焦炭质量参数</span>
+            <span class="s1">&#39;predicted_CRI&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_CRI</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_CSR&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_CSR</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_M10&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_M10</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_M25&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_M25</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_CRI_expert&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_CRI_expert</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_CSR_expert&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_CSR_expert</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_M10_expert&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_M10_expert</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_M25_expert&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_M25_expert</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_CRI_error&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_CRI_error</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_CSR_error&#39;</span><span class="p">:</span><span class="n">predicted_CSR_error</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_M10_error&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_CRI_error</span><span class="p">,</span>
+            <span class="s1">&#39;predicted_M25_error&#39;</span><span class="p">:</span><span class="n">item</span><span class="o">.</span><span class="n">predicted_CRI_error</span>
+            <span class="p">})</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+
+    <span class="c1"># def response_pie(self, CoalData=None):</span>
+    <span class="c1">#     if not CoalData:</span>
+    <span class="c1">#         return &#39;Error0101, the CoalData is None&#39;</span>
+    <span class="c1">#     res = []</span>
+    <span class="c1">#     for item in CoalData:</span>
+    <span class="c1">#         res.append({</span>
+    <span class="c1">#         &#39;coal_type&#39;: item.coal_type})</span>
+    <span class="c1">#     return res</span>
+    
+    <span class="c1"># def response_bar(self, CoalData=None):</span>
+    <span class="c1">#     if not CoalData:</span>
+    <span class="c1">#         return &#39;Error0101, the CoalData is None&#39;</span>
+    <span class="c1">#     res = []</span>
+    <span class="c1">#     for item in CoalData:</span>
+    <span class="c1">#         res.append({</span>
+    <span class="c1">#         &#39;coal_name&#39;: item.coal_name,</span>
+    <span class="c1">#         &#39;coal_price&#39;: item.coal_price})</span>
+    <span class="c1">#     return res</span>
+
+
+
+
+<span class="c1">#if __name__ == &#39;__main__&#39;:     </span>
+    <span class="c1">#db.create_all() </span>
+    <span class="c1">#不执行，不然会重新创建表格</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuhang Qiu, Haodong Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
