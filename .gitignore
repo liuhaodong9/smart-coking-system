@@ -1,0 +1,14 @@
+﻿# 忽略全部
+*
+
+# 允许配置文件
+!.gitignore
+!.gitattributes
+
+# 允许 GitHub Actions
+!.github/
+!.github/**
+
+# 允许 Flask/docs
+!Flask/
+!Flask/docs/**
