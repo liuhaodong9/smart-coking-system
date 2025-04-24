@@ -1,23 +1,48 @@
 ﻿name: build-docs
+
 on:
   push:
-    branches: [main]
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write      # 允许上传 Pages 工件
+  id-token: write   # 允许部署
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with: {python-version: "3.11"}
-    - run: |
-        python -m pip install -r Flask/docs/requirements.txt
-        sphinx-build -E -b html Flask/docs/source _site
-    - uses: actions/upload-pages-artifact@v2
-      with: {path: _site}
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          pip install -r Flask/docs/requirements.txt
+
+      - name: Build Sphinx HTML
+        run: sphinx-build -E -b html Flask/docs/source _site
+
+      # ★ 关键：上传 Pages 工件，而不是 upload-artifact
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site          # 与上一步输出目录一致
+
   deploy:
     needs: build
-    permissions: {pages: write, id-token: write}
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
     steps:
-    - uses: actions/deploy-pages@v2
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
