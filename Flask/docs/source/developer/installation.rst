@@ -25,10 +25,10 @@ Vue 环境
 
    npm run serve
 
-.. image:: ../_images/前端运行结果1.png
+.. image:: ../_images/developer_documentation/前端运行结果1.png
    :alt: 前端运行结果 1
 
-.. image:: ../_images/前端运行结果2.png
+.. image:: ../_images/developer_documentation/前端运行结果2.png
    :alt: 前端运行结果 2
 
 
@@ -69,7 +69,7 @@ Vue 环境
 
 Flask 若成功启动，会监听本机 **5000** 端口。
 
-.. image:: ../_images/后端运行结果.png
+.. image:: ../_images/developer_documentation/后端运行结果.png
    :alt: 后端运行结果
 
 
@@ -96,19 +96,19 @@ Flask 若成功启动，会监听本机 **5000** 端口。
 #. 导入示例 ``CoalData_table.csv``，格式选 “csv”。  
 #. **高级选项** 勾选 “使用 NULL 替换空字符串”。
 
-.. image:: ../_images/数据库设置1.png
+.. image:: ../_images/developer_documentation/数据库设置1.png
    :alt: 数据库设置 1
-.. image:: ../_images/数据库设置2.png
+.. image:: ../_images/developer_documentation/数据库设置2.png
    :alt: 数据库设置 2
-.. image:: ../_images/数据库设置3.png
+.. image:: ../_images/developer_documentation/数据库设置3.png
    :alt: 数据库设置 3
-.. image:: ../_images/数据库设置4.png
+.. image:: ../_images/developer_documentation/数据库设置4.png
    :alt: 数据库设置 4
-.. image:: ../_images/数据库设置5.png
+.. image:: ../_images/developer_documentation/数据库设置5.png
    :alt: 数据库设置 5
-.. image:: ../_images/数据库设置6.png
+.. image:: ../_images/developer_documentation/数据库设置6.png
    :alt: 数据库设置 6
-.. image:: ../_images/数据库设置7.png
+.. image:: ../_images/developer_documentation/数据库设置7.png
    :alt: 数据库设置 7
 
 更新 Flask 配置
